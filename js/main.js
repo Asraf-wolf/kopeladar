@@ -1,0 +1,616 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    // TRANSLATION DICTIONARY
+    const translations = {
+        'en': {
+            'nav-home': 'Home',
+            'nav-corporate': 'Corporate Info',
+            'nav-chairman': 'Chairman\'s Message',
+            'nav-vision': 'Vision/Mission/Objective',
+            'nav-board': 'Board of Directors',
+            'nav-management-team': 'Management Team',
+            'nav-organization': 'Organizational Structure',
+            'nav-careers': 'Careers',
+            'nav-customer': 'Customer Service',
+            'nav-downloads': 'Form Downloads',
+            'nav-ventures': 'Business',
+            'nav-contact': 'Contact Us',
+            'hero-title-1': 'Pioneering',
+            'hero-title-2': 'Corporate Excellence',
+            'hero-subtitle': 'Empowering the community of Kelantan through sustainable business ventures and professional services for over 50 years.',
+            'btn-explore': 'Explore Ventures',
+            'btn-contact': 'Get In Touch',
+            'scroll': 'Scroll Down',
+            'about-tag': 'WHO WE ARE',
+            'about-title': 'Legacy of Trust & Growth',
+            'years-exp': 'Years of Excellence',
+            'vision-title': 'Our Vision',
+            'vision-desc': 'To be a leading cooperative organization that creates high value for its members and contributes significantly to the socio-economic development of Kelantan.',
+            'mission-title': 'Our Mission',
+            'mission-1': 'Delivering professional and transparent financial services.',
+            'mission-2': 'Expanding business portfolios in property and retail.',
+            'mission-3': 'Fostering a culture of innovation and integrity.',
+            'btn-more': 'Read More',
+            'ventures-tag': 'OUR BUSINESS',
+            'ventures-title': 'Diversified Ventures',
+            'news-tag': 'LATEST UPDATES',
+            'news-title': 'Corporate News & Announcements',
+            'success-title': 'Thank You!',
+            'success-desc': 'Your message has been received. We will get back to you shortly.',
+            'v-property-title': 'Property Development',
+            'v-property-desc': 'Developing premium residential and commercial projects across Kelantan.',
+            'v-petrol-title': 'Retail & Petrol (Shell)',
+            'v-petrol-desc': 'Managing state-of-the-art Shell petrol stations and convenience stores.',
+            'v-water-title': 'Mineral Water Production',
+            'v-water-desc': 'Supplying high-quality mineral water to distributors and the general public.',
+            'v-partner-title': 'Partnership Projects',
+            'v-partner-desc': 'Collaborating on strategic development and investment projects.',
+            'v-hall-title': 'Hall Rental Services',
+            'v-hall-desc': 'Providing premium event spaces for corporate and social gatherings.',
+            'management-tag': 'LEADERSHIP',
+            'management-title': 'Professional Board of Directors',
+            'board-title': 'Board of Directors',
+            'member-1-name': "Dato' Haji Ahmad",
+            'member-1-pos': 'Chairman',
+            'member-2-name': 'Encik Mohamad',
+            'member-2-pos': 'Secretary',
+            'member-3-name': 'Puan Zarina',
+            'member-3-pos': 'Treasurer',
+            'careers-tag': 'JOIN OUR TEAM',
+            'careers-title': 'Current Opportunities',
+            'job-1-title': 'Management Trainee',
+            'job-1-desc': 'Seeking energetic individuals to join our professional development program.',
+            'btn-apply': 'Apply Now',
+            'downloads-tag': 'RESOURCES',
+            'downloads-title': 'Forms & Documents',
+            'doc-1-title': 'Membership Form',
+            'doc-2-title': 'Annual Report 2024',
+            'btn-download': 'Download PDF',
+            'chairman-title': 'Message From Our Chairman',
+            'chairman-msg': '"It is my great honor to lead KOPELADAR. Our commitment to excellence and community development remains our top priority as we navigate the modern economic landscape."',
+            'team-title': 'Our Professional Management',
+            'org-title': 'Organizational Chart',
+            'customer-title': 'Excellence in Service',
+            'contact-title': 'Contact Us',
+            'contact-desc': 'Have questions or want to collaborate? Reach out to our team.',
+            'location': 'Location',
+            'phone': 'Phone',
+            'email': 'Email',
+            'name-ph': 'Your Name',
+            'email-ph': 'Your Email',
+            'msg-ph': 'Your Message',
+            'btn-send': 'Send Message',
+            'mission-desc': 'Delivering professional and transparent financial services, expanding business portfolios, and fostering innovation and integrity in every venture.',
+            'stat-years': 'Years Excellence',
+            'stat-members': 'Active Members',
+            'stat-assets': 'RM Million Assets',
+            'stat-projects': 'Key Projects',
+            'timeline-title': 'Legacy of Growth',
+            'footer-text': '© 2026 Koperasi Perkhidmatan Pelajaran Kelantan Berhad. All Rights Reserved.'
+        },
+        'ms': {
+            'nav-home': 'Utama',
+            'nav-corporate': 'Info Korporat',
+            'nav-chairman': 'Perutusan Pengerusi',
+            'nav-vision': 'Visi/Misi/Objektif',
+            'nav-board': 'Lembaga Kopeladar',
+            'nav-management-team': 'Barisan Pengurusan',
+            'nav-organization': 'Struktur Organisasi',
+            'nav-careers': 'Kerjaya',
+            'nav-customer': 'Khidmat Pelanggan',
+            'nav-downloads': 'Muat Turun Borang',
+            'nav-ventures': 'Perniagaan',
+            'nav-contact': 'Hubungi Kami',
+            'hero-title-1': 'Menerajui',
+            'hero-title-2': 'Kecemerlangan Korporat',
+            'hero-subtitle': 'Memberdayakan komuniti Kelantan melalui usaha perniagaan yang mampan selama lebih 50 tahun.',
+            'btn-explore': 'Teroka Perniagaan',
+            'btn-contact': 'Hubungi Kami',
+            'scroll': 'Skrol Bawah',
+            'about-tag': 'SIAPA KAMI',
+            'about-title': 'Warisan Kepercayaan & Pertumbuhan',
+            'years-exp': 'Tahun Kecemerlangan',
+            'vision-title': 'Visi Kami',
+            'vision-desc': 'Menjadi organisasi koperasi terkemuka yang mencipta nilai tinggi kepada ahli dan menyumbang secara signifikan kepada pembangunan sosio-ekonomi Kelantan.',
+            'mission-title': 'Misi Kami',
+            'mission-1': 'Menyampaikan perkhidmatan kewangan yang profesional dan telus.',
+            'mission-2': 'Mengembangkan portfolio perniagaan dalam hartanah dan peruncitan.',
+            'mission-3': 'Memupuk budaya inovasi dan integriti.',
+            'btn-more': 'Baca Lagi',
+            'ventures-tag': 'PERNIAGAAN KAMI',
+            'ventures-title': 'Pelbagai Bidang Perniagaan',
+            'news-tag': 'TERKINI',
+            'news-title': 'Berita & Pengumuman Korporat',
+            'success-title': 'Terima Kasih!',
+            'success-desc': 'Mesej anda telah diterima. Kami akan menghubungi anda tidak lama lagi.',
+            'v-property-title': 'Pembangunan Hartanah',
+            'v-property-desc': 'Membangunkan projek kediaman dan komersial premium di seluruh Kelantan.',
+            'v-petrol-title': 'Runcit & Petrol (Shell)',
+            'v-petrol-desc': 'Menguruskan stesen minyak Shell dan pusat perkhidmatan kedai serbaneka yang canggih.',
+            'v-water-title': 'Pengeluaran Air Mineral',
+            'v-water-desc': 'Membekalkan air mineral berkualiti tinggi kepada pengedar dan orang ramai.',
+            'v-partner-title': 'Projek Kerjasama',
+            'v-partner-desc': 'Bekerjasama dalam projek pembangunan dan pelaburan strategik.',
+            'v-hall-title': 'Perkhidmatan Sewa Dewan',
+            'v-hall-desc': 'Menyediakan ruang acara premium untuk perhimpunan korporat dan sosial.',
+            'management-tag': 'KEPIMPINAN',
+            'management-title': 'Barisan Pengurusan Profesional',
+            'board-title': 'Lembaga Pengarah',
+            'member-1-name': "Dato' Haji Ahmad",
+            'member-1-pos': 'Pengerusi',
+            'member-2-name': 'Encik Mohamad',
+            'member-2-pos': 'Setiausaha',
+            'member-3-name': 'Puan Zarina',
+            'member-3-pos': 'Bendahari',
+            'careers-tag': 'SERTAI KAMI',
+            'careers-title': 'Peluang Kerjaya',
+            'job-1-title': 'Pelatih Pengurusan',
+            'job-1-desc': 'Mencari individu bertenaga untuk menyertai program pembangunan profesional kami.',
+            'btn-apply': 'Mohon Sekarang',
+            'downloads-tag': 'SUMBER',
+            'downloads-title': 'Borang & Dokumen',
+            'doc-1-title': 'Borang Keahlian',
+            'doc-2-title': 'Laporan Tahunan 2024',
+            'btn-download': 'Muat Turun PDF',
+            'chairman-title': 'Perutusan Daripada Pengerusi',
+            'chairman-msg': '"Adalah menjadi penghormatan besar bagi saya untuk memimpin KOPELADAR. Komitmen kami terhadap kecemerlangan dan pembangunan komuniti kekal sebagai keutamaan utama kami."',
+            'team-title': 'Pengurusan Profesional Kami',
+            'org-title': 'Carta Organisasi',
+            'customer-title': 'Kecemerlangan Berkhidmat',
+            'contact-title': 'Hubungi Kami',
+            'contact-desc': 'Mempunyai soalan atau ingin bekerjasama? Hubungi pasukan kami.',
+            'location': 'Lokasi',
+            'phone': 'Telefon',
+            'email': 'E-mel',
+            'name-ph': 'Nama Anda',
+            'email-ph': 'E-mel Anda',
+            'msg-ph': 'Mesej Anda',
+            'btn-send': 'Hantar Mesej',
+            'mission-desc': 'Menyampaikan perkhidmatan kewangan yang profesional dan telus, mengembangkan portfolio perniagaan, dan memupuk inovasi serta integriti dalam setiap usaha.',
+            'stat-years': 'Tahun Kecemerlangan',
+            'stat-members': 'Ahli Aktif',
+            'stat-assets': 'Aset RM Juta',
+            'stat-projects': 'Projek Utama',
+            'timeline-title': 'Warisan Pertumbuhan',
+            'footer-text': '© 2026 Koperasi Perkhidmatan Pelajaran Kelantan Berhad. Hak Cipta Terpelihara.'
+        }
+    };
+
+    // LANGUAGE SWITCHER LOGIC
+    const langBtns = document.querySelectorAll('.lang-btn');
+    let currentLang = 'en';
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                el.innerText = translations[lang][key];
+            }
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (translations[lang][key]) {
+                el.placeholder = translations[lang][key];
+            }
+        });
+
+        langBtns.forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
+
+        document.documentElement.lang = lang;
+    }
+
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
+            setLanguage(lang);
+        });
+    });
+
+    // SCROLL ANIMATIONS (AOS)
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    }
+
+    // HEADER SCROLL EFFECT
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // MOBILE TOGGLE
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navbar = document.getElementById('navbar');
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', () => {
+            navbar.classList.toggle('show');
+            mobileToggle.classList.toggle('active');
+        });
+    }
+
+    // MOBILE DROPDOWN TOGGLE
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('a');
+        link.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+                const menu = dropdown.querySelector('.dropdown-menu');
+                menu.style.display = dropdown.classList.contains('active') ? 'block' : 'none';
+            }
+        });
+    });
+
+    // ENTRANCE ANIMATIONS - Handled by AOS
+
+
+    // PRELOADER
+    const preloader = document.getElementById('preloader');
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            preloader.style.transform = 'translateY(-100%)';
+            preloader.style.transition = 'transform 1s cubic-bezier(0.85, 0, 0.15, 1)';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                document.body.classList.remove('loading');
+                // Trigger initial AOS manually if needed
+                if (typeof AOS !== 'undefined') AOS.refresh();
+            }, 1000);
+        }, 1500);
+    });
+
+    // STATS COUNTER ANIMATION
+    const stats = document.querySelectorAll('.count');
+    const speed = 200;
+
+    const startCounter = (el) => {
+        const target = +el.getAttribute('data-target');
+        let count = 0;
+        const duration = 2000; // 2 seconds
+        const stepTime = 20; // 20ms steps
+        const totalSteps = duration / stepTime;
+        const increment = target / totalSteps;
+
+        const counter = setInterval(() => {
+            count += increment;
+            if (count >= target) {
+                el.innerText = target.toLocaleString();
+                clearInterval(counter);
+            } else {
+                el.innerText = Math.ceil(count).toLocaleString();
+            }
+        }, stepTime);
+    };
+
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounter(entry.target);
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    stats.forEach(stat => statsObserver.observe(stat));
+
+    // HQ CLOCK LOGIC
+    function updateHQClock() {
+        const timeEl = document.getElementById('kl-time');
+        const statusEl = document.getElementById('hq-status');
+        const dot = document.querySelector('.dot-pulse');
+
+        if (!timeEl) return;
+
+        // Get KL Time (UTC+8)
+        const now = new Date();
+        const klTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Kuala_Lumpur" }));
+
+        const hours = klTime.getHours();
+        const minutes = klTime.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        const displayHours = hours % 12 || 12;
+        const displayMinutes = minutes < 10 ? '0' + minutes : minutes;
+
+        timeEl.innerText = `${displayHours}:${displayMinutes} ${ampm}`;
+
+        // Simple Office Hours (9 AM - 5 PM)
+        const isOpen = hours >= 9 && hours < 17;
+        statusEl.innerText = isOpen ? 'HQ OPEN' : 'HQ CLOSED';
+        dot.style.background = isOpen ? '#4ade80' : '#f87171';
+        dot.style.animation = isOpen ? 'statusPulse 2s infinite' : 'none';
+    }
+
+    setInterval(updateHQClock, 1000);
+    updateHQClock();
+
+    // COMMAND CENTER TICKERS
+    const tickers = document.querySelectorAll('.t-value');
+
+    tickers.forEach(ticker => {
+        statsObserver.observe(ticker); // Reuse the existing observer
+    });
+
+    // JOURNEY HORIZONTAL SCROLL (Simple CSS + JS helper)
+    const journeyTrack = document.querySelector('.journey-track');
+    const journeySection = document.querySelector('#journey');
+    if (journeyTrack && journeySection) {
+        window.addEventListener('scroll', () => {
+            const rect = journeySection.getBoundingClientRect();
+            if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+                const scrolled = -rect.top;
+                const total = rect.height - window.innerHeight;
+                const percentage = scrolled / total;
+                journeyTrack.style.transform = `translateX(-${percentage * 200}vw)`;
+            }
+        });
+    }
+
+    // SMOOTH NAV ACTIVE LINK
+    window.addEventListener('scroll', () => {
+        let current = "";
+        const sections = document.querySelectorAll("section");
+        const navLi = document.querySelectorAll("#navbar ul li a");
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (window.scrollY >= sectionTop - 100) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLi.forEach((li) => {
+            li.classList.remove("active");
+            if (li.getAttribute("href") === `#${current}`) {
+                li.classList.add("active");
+            }
+        });
+    });
+
+    // MODERN FORM SUBMISSION
+    const contactForm = document.getElementById('contactForm');
+    const formSuccessBtn = document.getElementById('resetFormBtn');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = contactForm.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerHTML = `<span>${currentLang === 'en' ? 'Sending...' : 'Menghantar...'}</span>`;
+            btn.disabled = true;
+
+            // Simulate API call
+            setTimeout(() => {
+                contactForm.classList.add('hidden');
+                document.getElementById('formSuccess').classList.add('active');
+                contactForm.reset();
+                btn.innerHTML = `<span>${originalText}</span>`;
+                btn.disabled = false;
+            }, 1500);
+        });
+    }
+
+    if (formSuccessBtn) {
+        formSuccessBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('formSuccess').classList.remove('active');
+            contactForm.classList.remove('hidden');
+        });
+    }
+
+    // THEME TOGGLE (DARK MODE)
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme == "dark") {
+            document.body.classList.add("dark-mode");
+            themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+            let theme = "light";
+            if (document.body.classList.contains("dark-mode")) {
+                theme = "dark";
+                themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+            } else {
+                themeToggle.querySelector('i').classList.replace('fa-sun', 'fa-moon');
+            }
+            localStorage.setItem("theme", theme);
+        });
+    }
+
+    // SCROLL PROGRESS INDICATOR
+    const scrollProgress = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+        if (scrollProgress) {
+            const totalScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scroll = `${(totalScroll / windowHeight) * 100}%`;
+            scrollProgress.style.width = scroll;
+        }
+    });
+
+    // SWIPER INIT (NEWS CAROUSEL)
+    if (typeof Swiper !== 'undefined') {
+        new Swiper('.news-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+    }
+
+    // MAGNETIC BUTTONS
+    const magneticBtns = document.querySelectorAll('.magnetic-btn');
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', function (e) {
+            const position = btn.getBoundingClientRect();
+            const x = e.clientX - position.left - position.width / 2;
+            const y = e.clientY - position.top - position.height / 2;
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px)`;
+        });
+        btn.addEventListener('mouseout', function (e) {
+            btn.style.transform = 'translate(0px, 0px)';
+        });
+    });
+
+    // LIQUID CUSTOM CURSOR
+    const cursor = document.getElementById('custom-cursor');
+    const follower = document.getElementById('cursor-follower');
+    if (cursor && follower) {
+        let mouseX = 0, mouseY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+        });
+
+        function animateFollower() {
+            followerX += (mouseX - followerX) * 0.2;
+            followerY += (mouseY - followerY) * 0.2;
+            follower.style.left = followerX + 'px';
+            follower.style.top = followerY + 'px';
+            requestAnimationFrame(animateFollower);
+        }
+        animateFollower();
+
+        // Hover states on interactive elements
+        const hoverTags = 'a, button, input, textarea, select, .vacc-item';
+        document.querySelectorAll(hoverTags).forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+                follower.classList.add('hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+                follower.classList.remove('hover');
+            });
+        });
+
+        // Hover state specific for swiper
+        const swiperWrap = document.querySelector('.news-swiper');
+        if (swiperWrap) {
+            swiperWrap.addEventListener('mouseenter', () => {
+                cursor.classList.add('drag');
+                cursor.classList.add('hover');
+            });
+            swiperWrap.addEventListener('mouseleave', () => {
+                cursor.classList.remove('drag');
+                cursor.classList.remove('hover');
+            });
+        }
+    }
+
+    // STATS SVG RING ANIMATION
+    const statRings = document.querySelectorAll('.stat-svg .progress');
+    const ringObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const ring = entry.target;
+                const percent = ring.getAttribute('data-percent');
+                const offset = 283 - (283 * percent) / 100;
+                // Add a small delay so it fits well with the number counter
+                setTimeout(() => {
+                    ring.style.strokeDashoffset = offset;
+                }, 200);
+                ringObserver.unobserve(ring);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    statRings.forEach(ring => ringObserver.observe(ring));
+
+    // VENTURES ACCORDION
+    const vaccItems = document.querySelectorAll('.vacc-item');
+    vaccItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            vaccItems.forEach(acc => acc.classList.remove('active'));
+            item.classList.add('active');
+        });
+    });
+
+    // ELITE 3.0: TEXT REVEAL MASK
+    const revealTexts = document.querySelectorAll('.reveal-text');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    revealTexts.forEach(text => revealObserver.observe(text));
+
+    // ELITE 3.0: 3D GLASS TILT EFFECT
+    const tiltCards = document.querySelectorAll('.tilt-card');
+    tiltCards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const tiltX = ((y - centerY) / centerY) * -10; // Max tilt 10deg
+            const tiltY = ((x - centerX) / centerX) * 10;
+
+            card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
+            card.style.transition = 'none';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            card.style.transition = 'transform 0.5s cubic-bezier(0.2, 1, 0.3, 1)';
+        });
+
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'transform 0.1s cubic-bezier(0.2, 1, 0.3, 1)';
+        });
+    });
+
+    // ELITE 3.0: PARALLAX IMAGES
+    const parallaxImgs = document.querySelectorAll('.parallax-img');
+    window.addEventListener('scroll', () => {
+        parallaxImgs.forEach(img => {
+            const rect = img.parentElement.getBoundingClientRect();
+            // Check if visible
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                const scrolled = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+                // Translate Y from -10% to +10%
+                const yPos = (scrolled * 20) - 10;
+                img.style.transform = `translateY(${yPos}%)`;
+            }
+        });
+    });
+
+});

@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOPELADAR | Koperasi Perkhidmatan Pelajaran Kelantan Berhad</title>
+    <meta name="description"
+        content="KOPELADAR - Leading Cooperative in Kelantan, providing excellence in property, retail, and financial services.">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Animation Libs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+
+<body class="loading">
+
+    <!-- SCROLL PROGRESS & CUSTOM CURSOR -->
+    <div id="scroll-progress"></div>
+    <div id="custom-cursor" class="custom-cursor"></div>
+    <div id="cursor-follower" class="cursor-follower"></div>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="svg-loader-wrap">
+            <svg class="svg-logo-draw" viewBox="0 0 400 100">
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">KOPELADAR</text>
+            </svg>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header id="main-header">
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <img src="img/logo.png" alt="KOPELADAR Logo" class="logo-img">
+                <span class="logo-text">KOPELADAR</span>
+            </div>
+
+            <nav id="navbar">
+                <ul>
+                    <li><a href="#home" class="active" data-i18n="nav-home">Home</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" data-i18n="nav-corporate">Info Korporat <i
+                                class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 5px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#chairman" data-i18n="nav-chairman">Perutusan Pengerusi</a></li>
+                            <li><a href="#vision" data-i18n="nav-vision">Visi/Misi/Objektif</a></li>
+                            <li><a href="#board" data-i18n="nav-board">Lembaga Kopeladar</a></li>
+                            <li><a href="#management-team" data-i18n="nav-management-team">Barisan Pengurusan</a></li>
+                            <li><a href="#organization" data-i18n="nav-organization">Struktur Organisasi</a></li>
+                            <li><a href="#careers" data-i18n="nav-careers">Kerjaya</a></li>
+                            <li><a href="#customer-service" data-i18n="nav-customer">Khidmat Pelanggan</a></li>
+                            <li><a href="#downloads" data-i18n="nav-downloads">Muat Turun Borang</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" data-i18n="nav-ventures">Perniagaan <i class="fas fa-chevron-down"
+                                style="font-size: 0.7rem; margin-left: 5px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#property" data-i18n="v-property-title">Hartanah</a></li>
+                            <li><a href="#petrol" data-i18n="v-petrol-title">Stesen Minyak (Shell)</a></li>
+                            <li><a href="#projects" data-i18n="v-partner-title">Projek Kerjasama</a></li>
+                            <li><a href="#water" data-i18n="v-water-title">Air Mineral</a></li>
+                            <li><a href="#hall" data-i18n="v-hall-title">Perkhidmatan Sewa Dewan</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact" data-i18n="nav-contact">Hubungi Kami</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-right">
+                <div class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="lang-toggle" id="lang-toggle">
+                    <span class="lang-btn active" data-lang="en">EN</span>
+                    <span class="lang-divider">|</span>
+                    <span class="lang-btn" data-lang="ms">MY</span>
+                </div>
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero relative-overflow">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay-gradient"></div>
+        <div class="container relative-z">
+            <div class="hero-content">
+                <h6 class="sub-title" data-aos="fade-up">ESTABLISHED 1974</h6>
+                <h1 data-aos="fade-up" data-aos-delay="100">
+                    <span data-i18n="hero-title-1">Pioneering</span><br>
+                    <span class="accent" data-i18n="hero-title-2">Corporate Excellence</span>
+                </h1>
+                <p data-aos="fade-up" data-aos-delay="200" data-i18n="hero-subtitle">Empowering the community of
+                    Kelantan through sustainable business ventures and professional services for over 50 years.</p>
+                <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#ventures" class="btn btn-primary" data-i18n="btn-explore">Explore Ventures <i
+                            class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-outline" data-i18n="btn-contact">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAIRMAN MESSAGE -->
+    <section id="chairman" class="chairman section-padding relative-overflow">
+        <div class="mesh-orb orb-1"></div>
+        <div class="huge-watermark">LEADERSHIP</div>
+        <div class="container relative-z">
+            <div class="row align-center">
+                <div class="col-5" data-aos="fade-right">
+                    <div class="chairman-img parallax-wrap">
+                        <img src="https://via.placeholder.com/600x750" alt="Chairman" class="parallax-img">
+                        <div class="exp-badge">
+                            <span class="years" style="font-family: 'Playfair Display';">50+</span>
+                            <span class="text" data-i18n="years-exp"
+                                style="font-size: 0.7rem; letter-spacing: 2px;">YEARS OF TRUST</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7" data-aos="fade-left">
+                    <div class="chairman-text" style="padding-left: 50px;">
+                        <h6 class="sub-title" data-i18n="nav-chairman">Perutusan Pengerusi</h6>
+                        <h2 data-i18n="chairman-title" class="masked-header" style="margin-bottom: 40px;">
+                            <span class="reveal-text"><span>Leadership with Vision</span></span>
+                        </h2>
+                        <i class="fas fa-quote-left"
+                            style="font-size: 3rem; color: var(--accent); opacity: 0.2; margin-bottom: 30px; display: block;"></i>
+                        <p data-i18n="chairman-msg"
+                            style="font-size: 1.6rem; line-height: 1.4; color: var(--primary); margin-bottom: 40px;">"It
+                            is my great honor to lead KOPELADAR. Our commitment to excellence and community development
+                            remains our top priority as we navigate the modern economic landscape."</p>
+                        <div class="chairman-info">
+                            <h4 style="margin-bottom: 5px; font-size: 1.8rem;">Dato' Haji Ahmad</h4>
+                            <span
+                                style="color: var(--accent); font-weight: 600; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase;">Chairman
+                                of KOPELADAR</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS COUNTER -->
+    <section class="stats relative-overflow">
+        <div class="mesh-orb orb-2"></div>
+        <div class="huge-watermark watermark-light">GROWTH</div>
+        <div class="container relative-z">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="zoom-in">
+                    <svg class="stat-svg" viewBox="0 0 100 100">
+                        <circle class="bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="progress" cx="50" cy="50" r="45" data-percent="100"></circle>
+                    </svg>
+                    <div class="stat-content">
+                        <span class="count" data-target="50">0</span>
+                        <p data-i18n="stat-years">Years Excellence</p>
+                    </div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                    <svg class="stat-svg" viewBox="0 0 100 100">
+                        <circle class="bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="progress" cx="50" cy="50" r="45" data-percent="85"></circle>
+                    </svg>
+                    <div class="stat-content">
+                        <span class="count" data-target="15000">0</span>
+                        <p data-i18n="stat-members">Active Members</p>
+                    </div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                    <svg class="stat-svg" viewBox="0 0 100 100">
+                        <circle class="bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="progress" cx="50" cy="50" r="45" data-percent="92"></circle>
+                    </svg>
+                    <div class="stat-content">
+                        <span class="count" data-target="100">0</span>
+                        <p data-i18n="stat-assets">RM Million Assets</p>
+                    </div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                    <svg class="stat-svg" viewBox="0 0 100 100">
+                        <circle class="bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="progress" cx="50" cy="50" r="45" data-percent="75"></circle>
+                    </svg>
+                    <div class="stat-content">
+                        <span class="count" data-target="12">0</span>
+                        <p data-i18n="stat-projects">Key Projects</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERS MARQUEE -->
+    <section class="partners-marquee">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <img src="https://via.placeholder.com/150x50?text=Bank+Rakyat" alt="Bank Rakyat" loading="lazy">
+                <img src="https://via.placeholder.com/150x50?text=SME+Bank" alt="SME Bank" loading="lazy">
+                <img src="https://via.placeholder.com/150x50?text=Gov+Agency" alt="Gov Agency" loading="lazy">
+                <img src="https://via.placeholder.com/150x50?text=Construction+Co" alt="Construction" loading="lazy">
+                <img src="https://via.placeholder.com/150x50?text=Invest+Kelantan" alt="Invest Kelantan" loading="lazy">
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+                <img src="https://via.placeholder.com/150x50?text=Bank+Rakyat" alt="Bank Rakyat" loading="lazy">
+                <img src="https://via.placeholder.com/150x50?text=SME+Bank" alt="SME Bank" loading="lazy">
+                <img src="https://via.placeholder.com/150x50?text=Gov+Agency" alt="Gov Agency" loading="lazy">
+                <img src="https://via.placeholder.com/150x50?text=Construction+Co" alt="Construction" loading="lazy">
+                <img src="https://via.placeholder.com/150x50?text=Invest+Kelantan" alt="Invest Kelantan" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- LEGACY TIMELINE -->
+    <section id="timeline" class="timeline-container section-padding">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h6 class="sub-title">OUR JOURNEY</h6>
+                <h2 data-i18n="timeline-title" class="masked-header">
+                    <span class="reveal-text"><span>Legacy of Growth</span></span>
+                </h2>
+            </div>
+
+            <div class="timeline-line"></div>
+
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">1974</div>
+                <div class="timeline-content">
+                    <h4>Establishment</h4>
+                    <p>Foundation of KOPELADAR to serve the educators of Kelantan.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">1995</div>
+                <div class="timeline-content">
+                    <h4>Diversification</h4>
+                    <p>Expansion into retail and petrol station management.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2010</div>
+                <div class="timeline-content">
+                    <h4>Property Milestone</h4>
+                    <p>Launching our first major residential development project.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2024</div>
+                <div class="timeline-content">
+                    <h4>Digital Transformation</h4>
+                    <p>Modernizing operations and expanding to northern region distribution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HQ STATUS WIDGET -->
+    <div class="hq-widget">
+        <div class="widget-body">
+            <div class="status-indicator">
+                <span class="dot-pulse"></span>
+                <span id="hq-status">HQ OPEN</span>
+            </div>
+            <div class="widget-time" id="kl-time">12:00 PM</div>
+        </div>
+    </div>
+
+    <!-- VISION & MISSION SECTION -->
+    <section id="vision" class="about section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h6 class="sub-title" data-i18n="nav-vision">Visi / Misi / Objektif</h6>
+                <h2 data-i18n="about-title" class="masked-header">
+                    <span class="reveal-text"><span>Strategic Direction</span></span>
+                </h2>
+            </div>
+            <div class="row align-center">
+                <div class="col-6" data-aos="fade-right">
+                    <div class="about-img">
+                        <img src="img/property.png" alt="KOPELADAR HQ">
+                    </div>
+                    <div class="exp-badge">
+                        <span class="years">50+</span>
+                        <span class="text" data-i18n="years-exp">Years of Corporate Excellence</span>
+                    </div>
+                </div>
+                <div class="col-6" data-aos="fade-left">
+                    <div class="about-text">
+                        <div class="vision-mission-cards">
+                            <div class="vm-card">
+                                <i class="fas fa-eye"></i>
+                                <h4 data-i18n="vision-title">Our Vision</h4>
+                                <p data-i18n="vision-desc">To be a leading cooperative organization that creates high
+                                    value for its members and contributes significantly to the socio-economic
+                                    development of Kelantan.</p>
+                            </div>
+                            <div class="vm-card">
+                                <i class="fas fa-bullseye"></i>
+                                <h4 data-i18n="mission-title">Our Mission</h4>
+                                <p data-i18n="mission-desc">Delivering professional and transparent financial services,
+                                    expanding business portfolios, and fostering innovation and integrity in every
+                                    venture.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VENTURES SECTION -->
+    <section id="ventures" class="ventures section-padding bg-light relative-overflow">
+        <div class="mesh-orb orb-3"></div>
+        <div class="huge-watermark">EXCELLENCE</div>
+        <div class="container relative-z">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h6 class="sub-title" data-i18n="ventures-tag">OUR BUSINESS</h6>
+                <h2 data-i18n="ventures-title" class="masked-header">
+                    <span class="reveal-text"><span>Strategic Diversified Ventures</span></span>
+                </h2>
+            </div>
+
+            <div class="ventures-accordion" data-aos="fade-up" data-aos-delay="100">
+                <!-- Property -->
+                <div class="vacc-item active">
+                    <div class="vacc-bg">
+                        <img src="img/property.png" alt="Property">
+                    </div>
+                    <div class="vacc-content">
+                        <div class="vacc-icon"><i class="fas fa-building"></i></div>
+                        <div class="vacc-text">
+                            <h3 data-i18n="v-property-title">Property Development</h3>
+                            <p data-i18n="v-property-desc">Developing premium residential and commercial projects across
+                                Kelantan with modern architectural excellence.</p>
+                            <a href="#" class="read-more mt-2">Explore <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Petrol -->
+                <div class="vacc-item">
+                    <div class="vacc-bg">
+                        <img src="img/petrol.jpg" alt="Shell Petrol Station">
+                    </div>
+                    <div class="vacc-content">
+                        <div class="vacc-icon"><i class="fas fa-gas-pump"></i></div>
+                        <div class="vacc-text">
+                            <h3 data-i18n="v-petrol-title">Retail & Petrol (Shell)</h3>
+                            <p data-i18n="v-petrol-desc">Providing essential energy services through managed Shell
+                                petrol
+                                stations and convenience centers.</p>
+                            <a href="#" class="read-more mt-2">Explore <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mineral Water -->
+                <div class="vacc-item">
+                    <div class="vacc-bg">
+                        <img src="img/hero.png" alt="Mineral Water">
+                    </div>
+                    <div class="vacc-content">
+                        <div class="vacc-icon"><i class="fas fa-tint"></i></div>
+                        <div class="vacc-text">
+                            <h3 data-i18n="v-water-title">Mineral Water Production</h3>
+                            <p data-i18n="v-water-desc">Processing and distributing high-quality mineral water to
+                                distributors across the northern region.</p>
+                            <a href="#" class="read-more mt-2">Explore <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Partnership Projects -->
+                <div class="vacc-item">
+                    <div class="vacc-bg">
+                        <img src="img/property.png" alt="Partnership">
+                    </div>
+                    <div class="vacc-content">
+                        <div class="vacc-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="vacc-text">
+                            <h3 data-i18n="v-partner-title">Partnership Projects</h3>
+                            <p data-i18n="v-partner-desc">Strategic collaborations on large-scale development and
+                                institutional investment projects.</p>
+                            <a href="#" class="read-more mt-2">Explore <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hall Rental -->
+                <div class="vacc-item">
+                    <div class="vacc-bg">
+                        <img src="img/hero.png" alt="Hall Rental">
+                    </div>
+                    <div class="vacc-content">
+                        <div class="vacc-icon"><i class="fas fa-door-open"></i></div>
+                        <div class="vacc-text">
+                            <h3 data-i18n="v-hall-title">Hall Rental Services</h3>
+                            <p data-i18n="v-hall-desc">Executive event spaces equipped for high-level corporate
+                                functions and social events.</p>
+                            <a href="#" class="read-more mt-2">Explore <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MANAGEMENT SECTION -->
+    <section id="management" class="management section-padding">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h6 class="sub-title" data-i18n="management-tag">LEADERSHIP</h6>
+                <h2 data-i18n="management-title" class="masked-header">
+                    <span class="reveal-text"><span>Professional Board of Directors</span></span>
+                </h2>
+            </div>
+
+            <div class="management-grid">
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up">
+                    <div class="member-img">
+                        <img src="https://via.placeholder.com/600x800" alt="Chairman">
+                    </div>
+                    <div class="member-info">
+                        <h4 data-i18n="member-1-name">Dato' Haji Ahmad</h4>
+                        <p data-i18n="member-1-pos">Chairman</p>
+                    </div>
+                </div>
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up" data-aos-delay="100">
+                    <div class="member-img">
+                        <img src="https://via.placeholder.com/600x800" alt="Secretary">
+                    </div>
+                    <div class="member-info">
+                        <h4 data-i18n="member-2-name">Encik Mohamad</h4>
+                        <p data-i18n="member-2-pos">Secretary</p>
+                    </div>
+                </div>
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up" data-aos-delay="200">
+                    <div class="member-img">
+                        <img src="https://via.placeholder.com/600x800" alt="Treasurer">
+                    </div>
+                    <div class="member-info">
+                        <h4 data-i18n="member-3-name">Puan Zarina</h4>
+                        <p data-i18n="member-3-pos">Treasurer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOARD OF DIRECTORS (Lembaga Kopeladar) -->
+    <section id="board" class="management section-padding">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h6 class="sub-title" data-i18n="nav-board">Lembaga Kopeladar</h6>
+                <h2 data-i18n="board-title" class="masked-header">
+                    <span class="reveal-text"><span>Board of Directors</span></span>
+                </h2>
+            </div>
+
+            <div class="management-grid">
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up">
+                    <div class="member-img">
+                        <img src="https://via.placeholder.com/600x800" alt="Chairman">
+                    </div>
+                    <div class="member-info">
+                        <h4 data-i18n="member-1-name">Dato' Haji Ahmad</h4>
+                        <p data-i18n="member-1-pos">Chairman</p>
+                    </div>
+                </div>
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up" data-aos-delay="100">
+                    <div class="member-img">
+                        <img src="https://via.placeholder.com/600x800" alt="Secretary">
+                    </div>
+                    <div class="member-info">
+                        <h4 data-i18n="member-2-name">Encik Mohamad</h4>
+                        <p data-i18n="member-2-pos">Secretary</p>
+                    </div>
+                </div>
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up" data-aos-delay="200">
+                    <div class="member-img">
+                        <img src="https://via.placeholder.com/600x800" alt="Treasurer">
+                    </div>
+                    <div class="member-info">
+                        <h4 data-i18n="member-3-name">Puan Zarina</h4>
+                        <p data-i18n="member-3-pos">Treasurer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MANAGEMENT TEAM (Barisan Pengurusan) -->
+    <section id="management-team" class="management section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h6 class="sub-title" data-i18n="nav-management-team">Barisan Pengurusan</h6>
+                <h2 data-i18n="team-title">Our Professional Management</h2>
+            </div>
+            <div class="text-center" data-aos="fade-up">
+                <p style="font-size: 1.2rem; color: var(--gray-dark);">(Section Under Development)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORGANIZATIONAL STRUCTURE (Struktur Organisasi) -->
+    <section id="organization" class="section-padding">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h6 class="sub-title" data-i18n="nav-organization">Struktur Organisasi</h6>
+                <h2 data-i18n="org-title">Organizational Chart</h2>
+            </div>
+            <div class="text-center" data-aos="fade-up">
+                <img src="https://via.placeholder.com/1000x600" alt="Org Chart"
+                    style="max-width: 100%; border: 1px solid var(--gray-border);">
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER SERVICE (Khidmat Pelanggan) -->
+    <section id="customer-service" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h6 class="sub-title" data-i18n="nav-customer">Khidmat Pelanggan</h6>
+                <h2 data-i18n="customer-title">Excellence in Service</h2>
+            </div>
+            <div class="text-center" data-aos="fade-up">
+                <p style="font-size: 1.2rem; color: var(--gray-dark);">We are committed to providing the best service to
+                    our members and customers.</p>
+                <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Contact Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAREERS SECTION -->
+    <section id="careers" class="careers section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h6 class="sub-title" data-i18n="careers-tag">CAREERS</h6>
+                <h2 data-i18n="careers-title">Join Our Professional Team</h2>
+            </div>
+            <div class="careers-list" data-aos="fade-up">
+                <div class="career-item">
+                    <div class="career-info">
+                        <h4 data-i18n="job-1-title">Management Trainee</h4>
+                        <p data-i18n="job-1-desc">Seeking energetic individuals to join our professional corporate
+                            development program.</p>
+                    </div>
+                    <a href="#contact" class="btn btn-primary" data-i18n="btn-apply">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS & ANNOUNCEMENTS -->
+    <section id="news" class="news section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h6 class="sub-title" data-i18n="news-tag">LATEST UPDATES</h6>
+                <h2 data-i18n="news-title">Corporate News & Announcements</h2>
+            </div>
+
+            <div class="swiper news-swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="news-card">
+                            <div class="news-img">
+                                <img src="https://via.placeholder.com/400x250" alt="AGM 2026" loading="lazy">
+                                <div class="news-date">15 Mar 2026</div>
+                            </div>
+                            <div class="news-content">
+                                <h4>Annual General Meeting 2026</h4>
+                                <p>Notice for the upcoming 52nd Annual General Meeting for all registered members.</p>
+                                <a href="#" class="read-more">Read Full Notice <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="news-card">
+                            <div class="news-img">
+                                <img src="https://via.placeholder.com/400x250" alt="CSR Program" loading="lazy">
+                                <div class="news-date">02 Mar 2026</div>
+                            </div>
+                            <div class="news-content">
+                                <h4>Ramadan CSR Initiative</h4>
+                                <p>KOPELADAR extends support to 500 families across Kelantan in our annual giving back
+                                    program.</p>
+                                <a href="#" class="read-more">Read Full Notice <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="news-card">
+                            <div class="news-img">
+                                <img src="https://via.placeholder.com/400x250" alt="New Property" loading="lazy">
+                                <div class="news-date">20 Feb 2026</div>
+                            </div>
+                            <div class="news-content">
+                                <h4>Launch of Taman Kopeladar Phase 2</h4>
+                                <p>We are proud to announce the official launch of our newest residential development in
+                                    Pasir Mas.</p>
+                                <a href="#" class="read-more">Read Full Notice <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination & Navigation -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOWNLOADS SECTION -->
+    <section id="downloads" class="downloads section-padding">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h6 class="sub-title" data-i18n="downloads-tag">CORPORATE RESOURCES</h6>
+                <h2 data-i18n="downloads-title">Official Forms & Publications</h2>
+            </div>
+            <div class="downloads-grid">
+                <div class="download-item" data-aos="fade-up">
+                    <i class="fas fa-file-pdf"></i>
+                    <h4 data-i18n="doc-1-title">Membership Form</h4>
+                    <p>Official registration document for new members.</p>
+                    <a href="#" class="btn btn-primary" style="margin-top: 15px;" data-i18n="btn-download">Download</a>
+                </div>
+                <div class="download-item" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-file-pdf"></i>
+                    <h4 data-i18n="doc-2-title">Annual Report 2024</h4>
+                    <p>Comprehensive overview of corporate performance.</p>
+                    <a href="#" class="btn btn-primary" style="margin-top: 15px;" data-i18n="btn-download">Download</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact section-padding bg-light">
+        <div class="container">
+            <div class="contact-box">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="contact-info">
+                            <h2 data-i18n="contact-title">Contact Our HQ</h2>
+                            <p data-i18n="contact-desc">For official inquiries, partnership proposals, or membership
+                                services, please reach out to our corporate office.</p>
+
+                            <ul class="info-list">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <h5 data-i18n="location">Location</h5>
+                                        <p>Kota Bharu, Kelantan, Malaysia</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone-alt"></i>
+                                    <div>
+                                        <h5 data-i18n="phone">Direct Line</h5>
+                                        <p>+60 9-123 4567</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <h5 data-i18n="email">Corporate Email</h5>
+                                        <p>info@kopeladar.com.my</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <div class="contact-form-wrapper">
+                            <form id="contactForm" class="modern-form">
+                                <div class="form-group floating-label">
+                                    <input type="text" id="name" placeholder=" " required aria-label="Your Name">
+                                    <label for="name" data-i18n-placeholder="name-ph">Your Full Name</label>
+                                    <i class="fas fa-check-circle validation-icon"></i>
+                                </div>
+                                <div class="form-group floating-label">
+                                    <input type="email" id="email" placeholder=" " required
+                                        aria-label="Official Email Address">
+                                    <label for="email" data-i18n-placeholder="email-ph">Official Email Address</label>
+                                    <i class="fas fa-check-circle validation-icon"></i>
+                                </div>
+                                <div class="form-group floating-label">
+                                    <textarea id="message" rows="6" placeholder=" " required
+                                        aria-label="Your Inquiry"></textarea>
+                                    <label for="message" data-i18n-placeholder="msg-ph">Enter your inquiry...</label>
+                                    <i class="fas fa-check-circle validation-icon"></i>
+                                </div>
+                                <button type="submit" class="btn btn-primary magnetic-btn" data-i18n="btn-send">
+                                    <span>Submit Inquiry</span>
+                                </button>
+                            </form>
+                            <div class="form-success-state" id="formSuccess">
+                                <div class="success-checkmark">
+                                    <div class="check-icon"></div>
+                                </div>
+                                <h3 data-i18n="success-title">Thank You!</h3>
+                                <p data-i18n="success-desc">Your message has been received securely.</p>
+                                <button class="btn btn-outline" id="resetFormBtn" style="margin-top: 20px;">Send
+                                    Another</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEGA FOOTER -->
+    <footer class="mega-footer relative-overflow">
+        <div class="footer-watermark">KOPELADAR</div>
+        <div class="container relative-z">
+            <div class="footer-top">
+                <div class="footer-col footer-brand">
+                    <div class="footer-logo">
+                        <img src="img/logo.png" alt="KOPELADAR Logo">
+                        <span>KOPELADAR</span>
+                    </div>
+                    <p>Leading Cooperative in Kelantan, providing excellence in property, retail, and financial services
+                        since 1974.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="magnetic-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="magnetic-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="magnetic-btn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#chairman">Leadership</a></li>
+                        <li><a href="#ventures">Ventures</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Corporate</h4>
+                    <ul class="footer-links">
+                        <li><a href="#vision">Vision & Mission</a></li>
+                        <li><a href="#board">Board of Directors</a></li>
+                        <li><a href="#downloads">Resources</a></li>
+                        <li><a href="#contact">Contact HQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p style="margin-bottom: 20px;">Subscribe to our corporate newsletter for quarterly updates.</p>
+                    <form class="modern-form"
+                        style="padding: 0; background: transparent; backdrop-filter: none; border: none;">
+                        <div class="form-group floating-label" style="margin-bottom: 0;">
+                            <input type="email" id="nl-email" placeholder=" " required style="padding-right: 50px;">
+                            <label for="nl-email" style="background: transparent;">Email Address</label>
+                            <button type="submit" class="magnetic-btn nl-btn"
+                                style="position: absolute; right: 10px; top: 10px; background: transparent; border: none; color: var(--accent); font-size: 1.2rem; cursor: pointer;"><i
+                                    class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer-text">&copy; 2026 Koperasi Perkhidmatan Pelajaran Kelantan Berhad. All Rights
+                    Reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
