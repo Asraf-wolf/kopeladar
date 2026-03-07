@@ -80,7 +80,69 @@ h4,
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+[class*="col-"] {
+    padding: 0 15px;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.align-center {
+    align-items: center;
 }
 
 /* PRELOADER: SVG DRAWING */
@@ -152,6 +214,7 @@ h4,
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo {
@@ -342,6 +405,50 @@ h4,
 
 .lang-divider {
     margin: 0 5px;
+}
+
+/* RESPONSIVE HEADER FIXES */
+@media (max-width: 1200px) {
+    #navbar>ul {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .header-right {
+        gap: 15px;
+    }
+
+    #navbar {
+        display: none !important;
+    }
+
+    .logo-text {
+        font-size: 1.4rem;
+    }
+
+    [class*="col-"] {
+        width: 100% !important;
+    }
+
+    .chairman-text {
+        padding-left: 0 !important;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo-text {
+        display: none;
+    }
+
+    .logo-img {
+        height: 45px;
+    }
+
+    .header-right {
+        gap: 10px;
+    }
 }
 
 /* HERO */
@@ -635,33 +742,6 @@ h4,
     text-align: right;
 }
 
-.timeline-dot {
-    position: absolute;
-    top: 10px;
-    width: 20px;
-    height: 20px;
-    background: var(--accent);
-    border-radius: 50%;
-    box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.2);
-    z-index: 10;
-}
-
-.timeline-item:nth-child(odd) .timeline-dot {
-    right: -10px;
-}
-
-.timeline-item:nth-child(even) .timeline-dot {
-    left: -10px;
-}
-
-.timeline-year {
-    font-family: 'Playfair Display';
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 15px;
-}
-
 .timeline-content {
     background: var(--white);
     padding: 30px;
@@ -669,6 +749,30 @@ h4,
     box-shadow: var(--shadow-md);
     border: 1px solid var(--gray-border);
 }
+
+@media (max-width: 768px) {
+    .timeline-line {
+        left: 20px;
+        transform: none;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left !important;
+    }
+
+    .timeline-item:nth-child(even) {
+        margin-left: 0;
+    }
+
+    .timeline-dot {
+        left: 10px !important;
+        right: auto !important;
+    }
+}
+
 
 /* HQ STATUS WIDGET */
 .hq-widget {
@@ -694,6 +798,19 @@ h4,
 
 .widget-body:hover {
     transform: translateY(-5px);
+}
+
+@media (max-width: 576px) {
+    .hq-widget {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+    }
+
+    .widget-body {
+        justify-content: center;
+        width: 100%;
+    }
 }
 
 .status-indicator {
@@ -1271,13 +1388,6 @@ h4,
 }
 
 @media (max-width: 991px) {
-
-    .col-5,
-    .col-6,
-    .col-7 {
-        width: 100%;
-    }
-
     .contact-info {
         margin-bottom: 40px;
     }
@@ -1369,6 +1479,20 @@ h4,
 
     #main-header.scrolled .mobile-toggle span {
         background: var(--primary);
+    }
+
+    .mobile-toggle.active span:nth-child(1) {
+        transform: translateY(8.5px) rotate(45deg);
+        background: var(--white) !important;
+    }
+
+    .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-toggle.active span:nth-child(3) {
+        transform: translateY(-8.5px) rotate(-45deg);
+        background: var(--white) !important;
     }
 }
 
@@ -2427,7 +2551,24 @@ body.dark-mode .mega-footer {
     }
 
     .internal-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .about-text .masked-header h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-padding {
+        padding: 80px 0;
+    }
+
+    .hero-content h1 {
         font-size: 2.5rem;
     }
 
+    .hero-btns {
+        flex-direction: column;
+    }
 }
