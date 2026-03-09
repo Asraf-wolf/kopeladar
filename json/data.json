@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "name": "YB. Dato' Menteri Besar Kelantan",
+        "title": "Penaung",
+        "image": "../img/opah.png",
+        "bio": "Serving as the patron and main advisor for the organization.",
+        "phone": "+60 11-11111",
+        "email": "penaung@example.com"
+    },
+    {
+        "id": 2,
+        "name": "YABrs. En. Mohd Arpi bin Ariffin",
+        "title": "Penasihat",
+        "image": "../img/opah.png",
+        "bio": "Providing strategic advice and guidance to the management board.",
+        "phone": "+60 11-11111",
+        "email": "penasihat@example.com"
+    },
+    {
+        "id": 3,
+        "name": "YABrs. En. Mohd Arpi bin Ariffin",
+        "title": "Penasihat",
+        "image": "../img/opah.png",
+        "bio": "Providing strategic advice and guidance to the management board.",
+        "phone": "+60 11-11111",
+        "email": "penasihat@example.com"
+    },
+    {
+        "id": 4,
+        "name": "YABrs. En. Mohd Arpi bin Ariffin",
+        "title": "Penasihat",
+        "image": "../img/opah.png",
+        "bio": "Providing strategic advice and guidance to the management board.",
+        "phone": "+60 11-11111",
+        "email": "penasihat@example.com"
+    },
+    {
+        "id": 5,
+        "name": "YABrs. En. Mohd Arpi bin Ariffin",
+        "title": "Penasihat",
+        "image": "../img/opah.png",
+        "bio": "Providing strategic advice and guidance to the management board.",
+        "phone": "+60 11-11111",
+        "email": "penasihat@example.com"
+    },
+    {
+        "id": 6,
+        "name": "YABrs. En. Mohd Arpi bin Ariffin",
+        "title": "Penasihat",
+        "image": "../img/opah.png",
+        "bio": "Providing strategic advice and guidance to the management board.",
+        "phone": "+60 11-11111",
+        "email": "penasihat@example.com"
+    },
+    {
+        "id": 7,
+        "name": "YABrs. En. Mohd Arpi bin Ariffin",
+        "title": "Penasihat",
+        "image": "../img/opah.png",
+        "bio": "Providing strategic advice and guidance to the management board.",
+        "phone": "+60 11-11111",
+        "email": "penasihat@example.com"
+    }
+]

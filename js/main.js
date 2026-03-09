@@ -1,260 +1,261 @@
-document.addEventListener('DOMContentLoaded', () => {
+// TRANSLATION DICTIONARY
+const translations = {
+    'en': {
+        'nav-home': 'Home',
+        'nav-corporate': 'Corporate Info',
+        'nav-chairman': 'Chairman\'s Message',
+        'nav-vision': 'Vision/Mission/Objective',
+        'nav-board': 'Board of Directors',
+        'nav-management-team': 'Management Team',
+        'nav-organization': 'Organizational Structure',
+        'nav-careers': 'Careers',
+        'nav-customer': 'Customer Service',
+        'nav-downloads': 'Form Downloads',
+        'nav-ventures': 'Business',
+        'nav-contact': 'Contact Us',
+        'hero-title-1': 'Pioneering',
+        'hero-title-2': 'Corporate Excellence',
+        'hero-subtitle': 'Empowering the community of Kelantan through sustainable business ventures and professional services for over 50 years.',
+        'btn-explore': 'Explore Ventures',
+        'btn-contact': 'Get In Touch',
+        'scroll': 'Scroll Down',
+        'about-tag': 'WHO WE ARE',
+        'about-title': 'Legacy of Trust & Growth',
+        'years-exp': 'Years of Excellence',
+        'vision-title': 'Our Vision',
+        'vision-desc': 'To be a leading cooperative organization that creates high value for its members and contributes significantly to the socio-economic development of Kelantan.',
+        'mission-title': 'Our Mission',
+        'mission-1': 'Delivering professional and transparent financial services.',
+        'mission-2': 'Expanding business portfolios in property and retail.',
+        'mission-3': 'Fostering a culture of innovation and integrity.',
+        'btn-more': 'Read More',
+        'ventures-tag': 'OUR BUSINESS',
+        'ventures-title': 'Diversified Ventures',
+        'news-tag': 'LATEST UPDATES',
+        'news-title': 'Corporate News & Announcements',
+        'success-title': 'Thank You!',
+        'success-desc': 'Your message has been received. We will get back to you shortly.',
+        'v-property-title': 'Property Development',
+        'v-property-desc': 'Developing premium residential and commercial projects across Kelantan.',
+        'v-petrol-title': 'Retail & Petrol (Shell)',
+        'v-petrol-desc': 'Managing state-of-the-art Shell petrol stations and convenience stores.',
+        'v-water-title': 'Mineral Water Production',
+        'v-water-desc': 'Supplying high-quality mineral water to distributors and the general public.',
+        'v-partner-title': 'Partnership Projects',
+        'v-partner-desc': 'Collaborating on strategic development and investment projects.',
+        'v-hall-title': 'Hall Rental Services',
+        'v-hall-desc': 'Providing premium event spaces for corporate and social gatherings.',
+        'v-shell-premium-title': 'Premium Energy Solutions',
+        'v-shell-premium-desc': 'KOPELADAR is proud to partner with Shell to provide high-quality fuel and exceptional retail services to the community of Kelantan. Our stations are designed to be more than just refuelling stops; they are community hubs providing convenience and reliability.',
+        'v-shell-f1-title': 'V-Power Fuels',
+        'v-shell-f1-desc': 'High-performance fuels for better engine health.',
+        'v-shell-f2-title': 'Shell Select',
+        'v-shell-f2-desc': 'Premium convenience stores with a wide range of products.',
+        'v-shell-f3-title': 'Car Care Services',
+        'v-shell-f3-desc': 'Professional car wash and maintenance services.',
+        'v-prop-premium-title': 'Visionary Real Estate',
+        'v-prop-premium-desc': 'KOPELADAR Property focuses on creating sustainable living environments and functional commercial spaces. Our team ensures every project meets high standards of quality and design, contributing to the urban development of Kelantan.',
+        'v-prop-f1-title': 'Residential Projects',
+        'v-prop-f1-desc': 'Modern gated communities and luxury housing.',
+        'v-prop-f2-title': 'Commercial Spaces',
+        'v-prop-f2-desc': 'Strategic shop lots and corporate offices.',
+        'v-prop-f3-title': 'Land Acquisition',
+        'v-prop-f3-desc': 'Developing strategically located land for future growth.',
+        'v-water-premium-title': 'Purely Refreshing',
+        'v-water-premium-desc': "KOPELADAR's mineral water production facility uses state-of-the-art filtration and bottling technology to ensure the highest standards of purity. We supply mineral water to various institutional partners and commercial distributors throughout Kelantan and neighboring states.",
+        'v-water-f1-title': 'Advanced Filtration',
+        'v-water-f1-desc': 'Multi-stage purification process for ultimate purity.',
+        'v-water-f2-title': 'Quality Lab',
+        'v-water-f2-desc': 'In-house testing for mineral consistency and safety.',
+        'v-water-f3-title': 'Mass Distribution',
+        'v-water-f3-desc': 'Efficient logistics network for northern region supply.',
+        'v-part-premium-title': 'Strategic Alliances',
+        'v-part-premium-desc': 'KOPELADAR actively seeks and develops strategic partnerships with government agencies, financial institutions, and private corporations. These collaborations allow us to leverage expertise and capital to undertake large-scale projects that benefit our members and the Kelantan economy.',
+        'v-part-f1-title': 'Institutional JVs',
+        'v-part-f1-desc': 'Joint ventures with federal and state organizations.',
+        'v-part-f2-title': 'Investment Portfolios',
+        'v-part-f2-desc': 'Managing diversified investments for sustainable returns.',
+        'v-part-f3-title': 'Infrastructure Development',
+        'v-part-f3-desc': 'Partnering on urban development and infrastructure.',
+        'v-hall-premium-title': 'Premier Event Spaces',
+        'v-hall-premium-desc': 'Our executive event spaces are designed to accommodate a variety of functions, from professional seminars and corporate meetings to social banquets. Each hall is equipped with modern AV technology and can be customized to suit your specific requirements.',
+        'v-hall-f1-title': 'Modern AV Systems',
+        'v-hall-f1-desc': 'High-quality sound and visual equipment for presentations.',
+        'v-hall-f2-title': 'Catering Services',
+        'v-hall-f2-desc': 'Integrated catering options with diverse menu selections.',
+        'v-hall-f3-title': 'Flexible Capacity',
+        'v-hall-f3-desc': 'Spaces ranging from executive boardrooms to grand halls.',
+        'management-tag': 'LEADERSHIP',
+        'management-title': 'Professional Board of Directors',
+        'board-title': 'Board of Directors',
+        'member-1-name': "Dato' Haji Ahmad",
+        'member-1-pos': 'Chairman',
+        'member-2-name': 'Encik Mohamad',
+        'member-2-pos': 'Secretary',
+        'member-3-name': 'Puan Zarina',
+        'member-3-pos': 'Treasurer',
+        'careers-tag': 'JOIN OUR TEAM',
+        'careers-title': 'Current Opportunities',
+        'job-1-title': 'Management Trainee',
+        'job-1-desc': 'Seeking energetic individuals to join our professional development program.',
+        'btn-apply': 'Apply Now',
+        'downloads-tag': 'RESOURCES',
+        'downloads-title': 'Forms & Documents',
+        'doc-1-title': 'Membership Form',
+        'doc-2-title': 'Annual Report 2024',
+        'btn-download': 'Download PDF',
+        'chairman-title': 'Message From Our Chairman',
+        'chairman-msg': '"It is my great honor to lead KOPELADAR. Our commitment to excellence and community development remains our top priority as we navigate the modern economic landscape."',
+        'team-title': 'Our Professional Management',
+        'org-title': 'Organizational Chart',
+        'customer-title': 'Excellence in Service',
+        'contact-title': 'Contact Us',
+        'contact-desc': 'Have questions or want to collaborate? Reach out to our team.',
+        'location': 'Location',
+        'phone': 'Phone',
+        'email': 'Email',
+        'name-ph': 'Your Name',
+        'email-ph': 'Your Email',
+        'msg-ph': 'Your Message',
+        'btn-send': 'Send Message',
+        'mission-desc': 'Delivering professional and transparent financial services, expanding business portfolios, and fostering innovation and integrity in every venture.',
+        'stat-years': 'Years Excellence',
+        'stat-members': 'Active Members',
+        'stat-assets': 'RM Million Assets',
+        'stat-projects': 'Key Projects',
+        'timeline-title': 'Legacy of Growth',
+        'footer-text': '© 2026 Koperasi Perkhidmatan Pelajaran Kelantan Berhad. All Rights Reserved.'
+    },
+    'ms': {
+        'nav-home': 'Utama',
+        'nav-corporate': 'Info Korporat',
+        'nav-chairman': 'Perutusan Pengerusi',
+        'nav-vision': 'Visi/Misi/Objektif',
+        'nav-board': 'Lembaga Kopeladar',
+        'nav-management-team': 'Barisan Pengurusan',
+        'nav-organization': 'Struktur Organisasi',
+        'nav-careers': 'Kerjaya',
+        'nav-customer': 'Khidmat Pelanggan',
+        'nav-downloads': 'Muat Turun Borang',
+        'nav-ventures': 'Perniagaan',
+        'nav-contact': 'Hubungi Kami',
+        'hero-title-1': 'Menerajui',
+        'hero-title-2': 'Kecemerlangan Korporat',
+        'hero-subtitle': 'Memberdayakan komuniti Kelantan melalui usaha perniagaan yang mampan selama lebih 50 tahun.',
+        'btn-explore': 'Teroka Perniagaan',
+        'btn-contact': 'Hubungi Kami',
+        'scroll': 'Skrol Bawah',
+        'about-tag': 'SIAPA KAMI',
+        'about-title': 'Warisan Kepercayaan & Pertumbuhan',
+        'years-exp': 'Tahun Kecemerlangan',
+        'vision-title': 'Visi Kami',
+        'vision-desc': 'Menjadi organisasi koperasi terkemuka yang mencipta nilai tinggi kepada ahli dan menyumbang secara signifikan kepada pembangunan sosio-ekonomi Kelantan.',
+        'mission-title': 'Misi Kami',
+        'mission-1': 'Menyampaikan perkhidmatan kewangan yang profesional dan telus.',
+        'mission-2': 'Mengembangkan portfolio perniagaan dalam hartanah dan peruncitan.',
+        'mission-3': 'Memupuk budaya inovasi dan integriti.',
+        'btn-more': 'Baca Lagi',
+        'ventures-tag': 'PERNIAGAAN KAMI',
+        'ventures-title': 'Pelbagai Bidang Perniagaan',
+        'news-tag': 'TERKINI',
+        'news-title': 'Berita & Pengumuman Korporat',
+        'success-title': 'Terima Kasih!',
+        'success-desc': 'Mesej anda telah diterima. Kami akan menghubungi anda tidak lama lagi.',
+        'v-property-title': 'Pembangunan Hartanah',
+        'v-property-desc': 'Membangunkan projek kediaman dan komersial premium di seluruh Kelantan.',
+        'v-petrol-title': 'Runcit & Petrol (Shell)',
+        'v-petrol-desc': 'Menguruskan stesen minyak Shell dan pusat perkhidmatan kedai serbaneka yang canggih.',
+        'v-water-title': 'Pengeluaran Air Mineral',
+        'v-water-desc': 'Membekalkan air mineral berkualiti tinggi kepada pengedar dan orang ramai.',
+        'v-partner-title': 'Projek Kerjasama',
+        'v-partner-desc': 'Bekerjasama dalam projek pembangunan dan pelaburan strategik.',
+        'v-hall-title': 'Perkhidmatan Sewa Dewan',
+        'v-hall-desc': 'Menyediakan ruang acara premium untuk perhimpunan korporat dan sosial.',
+        'v-shell-premium-title': 'Penyelesaian Tenaga Premium',
+        'v-shell-premium-desc': 'KOPELADAR berbangga bekerjasama dengan Shell untuk menyediakan bahan api berkualiti tinggi dan perkhidmatan runcit yang luar biasa kepada komuniti Kelantan. Stesen kami direka untuk menjadi lebih daripada sekadar tempat mengisi minyak; ia adalah hab komuniti yang menyediakan kemudahan dan kebolehpercayaan.',
+        'v-shell-f1-title': 'Bahan Api V-Power',
+        'v-shell-f1-desc': 'Bahan api berprestasi tinggi untuk kesihatan enjin yang lebih baik.',
+        'v-shell-f2-title': 'Shell Select',
+        'v-shell-f2-desc': 'Kedai serbaneka premium dengan pelbagai pilihan produk.',
+        'v-shell-f3-title': 'Khidmat Penjagaan Kereta',
+        'v-shell-f3-desc': 'Perkhidmatan cuci kereta dan penyelenggaraan profesional.',
+        'v-prop-premium-title': 'Hartanah Berwawasan',
+        'v-prop-premium-desc': 'Hartanah KOPELADAR fokus kepada penciptaan persekitaran hidup mampan dan ruang komersial berfungsi. Pasukan kami memastikan setiap projek memenuhi standard kualiti dan reka bentuk yang tinggi, menyumbang kepada pembangunan bandar Kelantan.',
+        'v-prop-f1-title': 'Projek Kediaman',
+        'v-prop-f1-desc': 'Komuniti berpagar moden dan perumahan mewah.',
+        'v-prop-f2-title': 'Ruang Komersial',
+        'v-prop-f2-desc': 'Lot kedai strategik dan pejabat korporat.',
+        'v-prop-f3-title': 'Pengambilalihan Tanah',
+        'v-prop-f3-desc': 'Membangunkan tanah di lokasi strategik untuk pertumbuhan masa hadapan.',
+        'v-water-premium-title': 'Kesegaran Tulen',
+        'v-water-premium-desc': 'Pusat pengeluaran air mineral KOPELADAR menggunakan teknologi penapisan dan pembotolan termaju untuk memastikan standard ketulenan tertinggi. Kami membekalkan air mineral kepada pelbagai rakan institusi dan pengedar komersial di seluruh Kelantan dan negeri jiran.',
+        'v-water-f1-title': 'Penapisan Termaju',
+        'v-water-f1-desc': 'Proses penulenan pelbagai peringkat untuk ketulenan mutlak.',
+        'v-water-f2-title': 'Makmal Kualiti',
+        'v-water-f2-desc': 'Ujian dalaman untuk konsistensi mineral dan keselamatan.',
+        'v-water-f3-title': 'Pengedaran Massa',
+        'v-water-f3-desc': 'Rangkaian logistik yang cekap untuk bekalan wilayah utara.',
+        'v-part-premium-title': 'Perikatan Strategik',
+        'v-part-premium-desc': 'KOPELADAR aktif mencari dan membangunkan perkongsian strategik dengan agensi kerajaan, institusi kewangan, dan korporat swasta. Kerjasama ini membolehkan kami memanfaatkan kepakaran dan modal untuk melaksanakan projek berskala besar yang memberi manfaat kepada ahli dan ekonomi Kelantan.',
+        'v-part-f1-title': 'JV Institusi',
+        'v-part-f1-desc': 'Usahasama dengan organisasi persekutuan dan negeri.',
+        'v-part-f2-title': 'Portfolio Pelaburan',
+        'v-part-f2-desc': 'Menguruskan pelaburan yang pelbagai untuk pulangan mampan.',
+        'v-part-f3-title': 'Pembangunan Infrastruktur',
+        'v-part-f3-desc': 'Bekerjasama dalam pembangunan bandar dan infrastruktur.',
+        'v-hall-premium-title': 'Ruang Acara Utama',
+        'v-hall-premium-desc': 'Ruang acara eksekutif kami direka untuk menampung pelbagai fungsi, daripada seminar profesional dan mesyuarat korporat sehingga jamuan sosial. Setiap dewan dilengkapi dengan teknologi AV moden dan boleh disesuaikan mengikut keperluan khusus anda.',
+        'v-hall-f1-title': 'Sistem AV Moden',
+        'v-hall-f1-desc': 'Peralatan bunyi dan visual berkualiti tinggi untuk pembentangan.',
+        'v-hall-f2-title': 'Perkhidmatan Katering',
+        'v-hall-f2-desc': 'Pilihan katering bersepadu dengan pelbagai pilihan menu.',
+        'v-hall-f3-title': 'Kapasiti Fleksibel',
+        'v-hall-f3-desc': 'Ruang merangkumi bilik mesyuarat eksekutif sehingga dewan besar.',
+        'management-tag': 'KEPIMPINAN',
+        'management-title': 'Barisan Pengurusan Profesional',
+        'board-title': 'Lembaga Pengarah',
+        'member-1-name': "Dato' Haji Ahmad",
+        'member-1-pos': 'Pengerusi',
+        'member-2-name': 'Encik Mohamad',
+        'member-2-pos': 'Setiausaha',
+        'member-3-name': 'Puan Zarina',
+        'member-3-pos': 'Bendahari',
+        'careers-tag': 'SERTAI KAMI',
+        'careers-title': 'Peluang Kerjaya',
+        'job-1-title': 'Pelatih Pengurusan',
+        'job-1-desc': 'Mencari individu bertenaga untuk menyertai program pembangunan profesional kami.',
+        'btn-apply': 'Mohon Sekarang',
+        'downloads-tag': 'SUMBER',
+        'downloads-title': 'Borang & Dokumen',
+        'doc-1-title': 'Borang Keahlian',
+        'doc-2-title': 'Laporan Tahunan 2024',
+        'btn-download': 'Muat Turun PDF',
+        'chairman-title': 'Perutusan Daripada Pengerusi',
+        'chairman-msg': '"Adalah menjadi penghormatan besar bagi saya untuk memimpin KOPELADAR. Komitmen kami terhadap kecemerlangan dan pembangunan komuniti kekal sebagai keutamaan utama kami."',
+        'team-title': 'Pengurusan Profesional Kami',
+        'org-title': 'Carta Organisasi',
+        'customer-title': 'Kecemerlangan Berkhidmat',
+        'contact-title': 'Hubungi Kami',
+        'contact-desc': 'Mempunyai soalan atau ingin bekerjasama? Hubungi pasukan kami.',
+        'location': 'Lokasi',
+        'phone': 'Telefon',
+        'email': 'E-mel',
+        'name-ph': 'Nama Anda',
+        'email-ph': 'E-mel Anda',
+        'msg-ph': 'Mesej Anda',
+        'btn-send': 'Hantar Mesej',
+        'mission-desc': 'Menyaiperkhidmatan kewangan yang profesional dan telus, mengembangkan portfolio perniagaan, dan memupuk inovasi serta integriti dalam setiap usaha.',
+        'stat-years': 'Tahun Kecemerlangan',
+        'stat-members': 'Ahli Aktif',
+        'stat-assets': 'Aset RM Juta',
+        'stat-projects': 'Projek Utama',
+        'timeline-title': 'Warisan Pertumbuhan',
+        'footer-text': '© 2026 Koperasi Perkhidmatan Pelajaran Kelantan Berhad. Hak Cipta Terpelihara.'
+    }
+};
 
-    // TRANSLATION DICTIONARY
-    const translations = {
-        'en': {
-            'nav-home': 'Home',
-            'nav-corporate': 'Corporate Info',
-            'nav-chairman': 'Chairman\'s Message',
-            'nav-vision': 'Vision/Mission/Objective',
-            'nav-board': 'Board of Directors',
-            'nav-management-team': 'Management Team',
-            'nav-organization': 'Organizational Structure',
-            'nav-careers': 'Careers',
-            'nav-customer': 'Customer Service',
-            'nav-downloads': 'Form Downloads',
-            'nav-ventures': 'Business',
-            'nav-contact': 'Contact Us',
-            'hero-title-1': 'Pioneering',
-            'hero-title-2': 'Corporate Excellence',
-            'hero-subtitle': 'Empowering the community of Kelantan through sustainable business ventures and professional services for over 50 years.',
-            'btn-explore': 'Explore Ventures',
-            'btn-contact': 'Get In Touch',
-            'scroll': 'Scroll Down',
-            'about-tag': 'WHO WE ARE',
-            'about-title': 'Legacy of Trust & Growth',
-            'years-exp': 'Years of Excellence',
-            'vision-title': 'Our Vision',
-            'vision-desc': 'To be a leading cooperative organization that creates high value for its members and contributes significantly to the socio-economic development of Kelantan.',
-            'mission-title': 'Our Mission',
-            'mission-1': 'Delivering professional and transparent financial services.',
-            'mission-2': 'Expanding business portfolios in property and retail.',
-            'mission-3': 'Fostering a culture of innovation and integrity.',
-            'btn-more': 'Read More',
-            'ventures-tag': 'OUR BUSINESS',
-            'ventures-title': 'Diversified Ventures',
-            'news-tag': 'LATEST UPDATES',
-            'news-title': 'Corporate News & Announcements',
-            'success-title': 'Thank You!',
-            'success-desc': 'Your message has been received. We will get back to you shortly.',
-            'v-property-title': 'Property Development',
-            'v-property-desc': 'Developing premium residential and commercial projects across Kelantan.',
-            'v-petrol-title': 'Retail & Petrol (Shell)',
-            'v-petrol-desc': 'Managing state-of-the-art Shell petrol stations and convenience stores.',
-            'v-water-title': 'Mineral Water Production',
-            'v-water-desc': 'Supplying high-quality mineral water to distributors and the general public.',
-            'v-partner-title': 'Partnership Projects',
-            'v-partner-desc': 'Collaborating on strategic development and investment projects.',
-            'v-hall-title': 'Hall Rental Services',
-            'v-hall-desc': 'Providing premium event spaces for corporate and social gatherings.',
-            'v-shell-premium-title': 'Premium Energy Solutions',
-            'v-shell-premium-desc': 'KOPELADAR is proud to partner with Shell to provide high-quality fuel and exceptional retail services to the community of Kelantan. Our stations are designed to be more than just refuelling stops; they are community hubs providing convenience and reliability.',
-            'v-shell-f1-title': 'V-Power Fuels',
-            'v-shell-f1-desc': 'High-performance fuels for better engine health.',
-            'v-shell-f2-title': 'Shell Select',
-            'v-shell-f2-desc': 'Premium convenience stores with a wide range of products.',
-            'v-shell-f3-title': 'Car Care Services',
-            'v-shell-f3-desc': 'Professional car wash and maintenance services.',
-            'v-prop-premium-title': 'Visionary Real Estate',
-            'v-prop-premium-desc': 'KOPELADAR Property focuses on creating sustainable living environments and functional commercial spaces. Our team ensures every project meets high standards of quality and design, contributing to the urban development of Kelantan.',
-            'v-prop-f1-title': 'Residential Projects',
-            'v-prop-f1-desc': 'Modern gated communities and luxury housing.',
-            'v-prop-f2-title': 'Commercial Spaces',
-            'v-prop-f2-desc': 'Strategic shop lots and corporate offices.',
-            'v-prop-f3-title': 'Land Acquisition',
-            'v-prop-f3-desc': 'Developing strategically located land for future growth.',
-            'v-water-premium-title': 'Purely Refreshing',
-            'v-water-premium-desc': "KOPELADAR's mineral water production facility uses state-of-the-art filtration and bottling technology to ensure the highest standards of purity. We supply mineral water to various institutional partners and commercial distributors throughout Kelantan and neighboring states.",
-            'v-water-f1-title': 'Advanced Filtration',
-            'v-water-f1-desc': 'Multi-stage purification process for ultimate purity.',
-            'v-water-f2-title': 'Quality Lab',
-            'v-water-f2-desc': 'In-house testing for mineral consistency and safety.',
-            'v-water-f3-title': 'Mass Distribution',
-            'v-water-f3-desc': 'Efficient logistics network for northern region supply.',
-            'v-part-premium-title': 'Strategic Alliances',
-            'v-part-premium-desc': 'KOPELADAR actively seeks and develops strategic partnerships with government agencies, financial institutions, and private corporations. These collaborations allow us to leverage expertise and capital to undertake large-scale projects that benefit our members and the Kelantan economy.',
-            'v-part-f1-title': 'Institutional JVs',
-            'v-part-f1-desc': 'Joint ventures with federal and state organizations.',
-            'v-part-f2-title': 'Investment Portfolios',
-            'v-part-f2-desc': 'Managing diversified investments for sustainable returns.',
-            'v-part-f3-title': 'Infrastructure Development',
-            'v-part-f3-desc': 'Partnering on urban development and infrastructure.',
-            'v-hall-premium-title': 'Premier Event Spaces',
-            'v-hall-premium-desc': 'Our executive event spaces are designed to accommodate a variety of functions, from professional seminars and corporate meetings to social banquets. Each hall is equipped with modern AV technology and can be customized to suit your specific requirements.',
-            'v-hall-f1-title': 'Modern AV Systems',
-            'v-hall-f1-desc': 'High-quality sound and visual equipment for presentations.',
-            'v-hall-f2-title': 'Catering Services',
-            'v-hall-f2-desc': 'Integrated catering options with diverse menu selections.',
-            'v-hall-f3-title': 'Flexible Capacity',
-            'v-hall-f3-desc': 'Spaces ranging from executive boardrooms to grand halls.',
-            'management-tag': 'LEADERSHIP',
-            'management-title': 'Professional Board of Directors',
-            'board-title': 'Board of Directors',
-            'member-1-name': "Dato' Haji Ahmad",
-            'member-1-pos': 'Chairman',
-            'member-2-name': 'Encik Mohamad',
-            'member-2-pos': 'Secretary',
-            'member-3-name': 'Puan Zarina',
-            'member-3-pos': 'Treasurer',
-            'careers-tag': 'JOIN OUR TEAM',
-            'careers-title': 'Current Opportunities',
-            'job-1-title': 'Management Trainee',
-            'job-1-desc': 'Seeking energetic individuals to join our professional development program.',
-            'btn-apply': 'Apply Now',
-            'downloads-tag': 'RESOURCES',
-            'downloads-title': 'Forms & Documents',
-            'doc-1-title': 'Membership Form',
-            'doc-2-title': 'Annual Report 2024',
-            'btn-download': 'Download PDF',
-            'chairman-title': 'Message From Our Chairman',
-            'chairman-msg': '"It is my great honor to lead KOPELADAR. Our commitment to excellence and community development remains our top priority as we navigate the modern economic landscape."',
-            'team-title': 'Our Professional Management',
-            'org-title': 'Organizational Chart',
-            'customer-title': 'Excellence in Service',
-            'contact-title': 'Contact Us',
-            'contact-desc': 'Have questions or want to collaborate? Reach out to our team.',
-            'location': 'Location',
-            'phone': 'Phone',
-            'email': 'Email',
-            'name-ph': 'Your Name',
-            'email-ph': 'Your Email',
-            'msg-ph': 'Your Message',
-            'btn-send': 'Send Message',
-            'mission-desc': 'Delivering professional and transparent financial services, expanding business portfolios, and fostering innovation and integrity in every venture.',
-            'stat-years': 'Years Excellence',
-            'stat-members': 'Active Members',
-            'stat-assets': 'RM Million Assets',
-            'stat-projects': 'Key Projects',
-            'timeline-title': 'Legacy of Growth',
-            'footer-text': '© 2026 Koperasi Perkhidmatan Pelajaran Kelantan Berhad. All Rights Reserved.'
-        },
-        'ms': {
-            'nav-home': 'Utama',
-            'nav-corporate': 'Info Korporat',
-            'nav-chairman': 'Perutusan Pengerusi',
-            'nav-vision': 'Visi/Misi/Objektif',
-            'nav-board': 'Lembaga Kopeladar',
-            'nav-management-team': 'Barisan Pengurusan',
-            'nav-organization': 'Struktur Organisasi',
-            'nav-careers': 'Kerjaya',
-            'nav-customer': 'Khidmat Pelanggan',
-            'nav-downloads': 'Muat Turun Borang',
-            'nav-ventures': 'Perniagaan',
-            'nav-contact': 'Hubungi Kami',
-            'hero-title-1': 'Menerajui',
-            'hero-title-2': 'Kecemerlangan Korporat',
-            'hero-subtitle': 'Memberdayakan komuniti Kelantan melalui usaha perniagaan yang mampan selama lebih 50 tahun.',
-            'btn-explore': 'Teroka Perniagaan',
-            'btn-contact': 'Hubungi Kami',
-            'scroll': 'Skrol Bawah',
-            'about-tag': 'SIAPA KAMI',
-            'about-title': 'Warisan Kepercayaan & Pertumbuhan',
-            'years-exp': 'Tahun Kecemerlangan',
-            'vision-title': 'Visi Kami',
-            'vision-desc': 'Menjadi organisasi koperasi terkemuka yang mencipta nilai tinggi kepada ahli dan menyumbang secara signifikan kepada pembangunan sosio-ekonomi Kelantan.',
-            'mission-title': 'Misi Kami',
-            'mission-1': 'Menyampaikan perkhidmatan kewangan yang profesional dan telus.',
-            'mission-2': 'Mengembangkan portfolio perniagaan dalam hartanah dan peruncitan.',
-            'mission-3': 'Memupuk budaya inovasi dan integriti.',
-            'btn-more': 'Baca Lagi',
-            'ventures-tag': 'PERNIAGAAN KAMI',
-            'ventures-title': 'Pelbagai Bidang Perniagaan',
-            'news-tag': 'TERKINI',
-            'news-title': 'Berita & Pengumuman Korporat',
-            'success-title': 'Terima Kasih!',
-            'success-desc': 'Mesej anda telah diterima. Kami akan menghubungi anda tidak lama lagi.',
-            'v-property-title': 'Pembangunan Hartanah',
-            'v-property-desc': 'Membangunkan projek kediaman dan komersial premium di seluruh Kelantan.',
-            'v-petrol-title': 'Runcit & Petrol (Shell)',
-            'v-petrol-desc': 'Menguruskan stesen minyak Shell dan pusat perkhidmatan kedai serbaneka yang canggih.',
-            'v-water-title': 'Pengeluaran Air Mineral',
-            'v-water-desc': 'Membekalkan air mineral berkualiti tinggi kepada pengedar dan orang ramai.',
-            'v-partner-title': 'Projek Kerjasama',
-            'v-partner-desc': 'Bekerjasama dalam projek pembangunan dan pelaburan strategik.',
-            'v-hall-title': 'Perkhidmatan Sewa Dewan',
-            'v-hall-desc': 'Menyediakan ruang acara premium untuk perhimpunan korporat dan sosial.',
-            'v-shell-premium-title': 'Penyelesaian Tenaga Premium',
-            'v-shell-premium-desc': 'KOPELADAR berbangga bekerjasama dengan Shell untuk menyediakan bahan api berkualiti tinggi dan perkhidmatan runcit yang luar biasa kepada komuniti Kelantan. Stesen kami direka untuk menjadi lebih daripada sekadar tempat mengisi minyak; ia adalah hab komuniti yang menyediakan kemudahan dan kebolehpercayaan.',
-            'v-shell-f1-title': 'Bahan Api V-Power',
-            'v-shell-f1-desc': 'Bahan api berprestasi tinggi untuk kesihatan enjin yang lebih baik.',
-            'v-shell-f2-title': 'Shell Select',
-            'v-shell-f2-desc': 'Kedai serbaneka premium dengan pelbagai pilihan produk.',
-            'v-shell-f3-title': 'Khidmat Penjagaan Kereta',
-            'v-shell-f3-desc': 'Perkhidmatan cuci kereta dan penyelenggaraan profesional.',
-            'v-prop-premium-title': 'Hartanah Berwawasan',
-            'v-prop-premium-desc': 'Hartanah KOPELADAR fokus kepada penciptaan persekitaran hidup mampan dan ruang komersial berfungsi. Pasukan kami memastikan setiap projek memenuhi standard kualiti dan reka bentuk yang tinggi, menyumbang kepada pembangunan bandar Kelantan.',
-            'v-prop-f1-title': 'Projek Kediaman',
-            'v-prop-f1-desc': 'Komuniti berpagar moden dan perumahan mewah.',
-            'v-prop-f2-title': 'Ruang Komersial',
-            'v-prop-f2-desc': 'Lot kedai strategik dan pejabat korporat.',
-            'v-prop-f3-title': 'Pengambilalihan Tanah',
-            'v-prop-f3-desc': 'Membangunkan tanah di lokasi strategik untuk pertumbuhan masa hadapan.',
-            'v-water-premium-title': 'Kesegaran Tulen',
-            'v-water-premium-desc': 'Pusat pengeluaran air mineral KOPELADAR menggunakan teknologi penapisan dan pembotolan termaju untuk memastikan standard ketulenan tertinggi. Kami membekalkan air mineral kepada pelbagai rakan institusi dan pengedar komersial di seluruh Kelantan dan negeri jiran.',
-            'v-water-f1-title': 'Penapisan Termaju',
-            'v-water-f1-desc': 'Proses penulenan pelbagai peringkat untuk ketulenan mutlak.',
-            'v-water-f2-title': 'Makmal Kualiti',
-            'v-water-f2-desc': 'Ujian dalaman untuk konsistensi mineral dan keselamatan.',
-            'v-water-f3-title': 'Pengedaran Massa',
-            'v-water-f3-desc': 'Rangkaian logistik yang cekap untuk bekalan wilayah utara.',
-            'v-part-premium-title': 'Perikatan Strategik',
-            'v-part-premium-desc': 'KOPELADAR aktif mencari dan membangunkan perkongsian strategik dengan agensi kerajaan, institusi kewangan, dan korporat swasta. Kerjasama ini membolehkan kami memanfaatkan kepakaran dan modal untuk melaksanakan projek berskala besar yang memberi manfaat kepada ahli dan ekonomi Kelantan.',
-            'v-part-f1-title': 'JV Institusi',
-            'v-part-f1-desc': 'Usahasama dengan organisasi persekutuan dan negeri.',
-            'v-part-f2-title': 'Portfolio Pelaburan',
-            'v-part-f2-desc': 'Menguruskan pelaburan yang pelbagai untuk pulangan mampan.',
-            'v-part-f3-title': 'Pembangunan Infrastruktur',
-            'v-part-f3-desc': 'Bekerjasama dalam pembangunan bandar dan infrastruktur.',
-            'v-hall-premium-title': 'Ruang Acara Utama',
-            'v-hall-premium-desc': 'Ruang acara eksekutif kami direka untuk menampung pelbagai fungsi, daripada seminar profesional dan mesyuarat korporat sehingga jamuan sosial. Setiap dewan dilengkapi dengan teknologi AV moden dan boleh disesuaikan mengikut keperluan khusus anda.',
-            'v-hall-f1-title': 'Sistem AV Moden',
-            'v-hall-f1-desc': 'Peralatan bunyi dan visual berkualiti tinggi untuk pembentangan.',
-            'v-hall-f2-title': 'Perkhidmatan Katering',
-            'v-hall-f2-desc': 'Pilihan katering bersepadu dengan pelbagai pilihan menu.',
-            'v-hall-f3-title': 'Kapasiti Fleksibel',
-            'v-hall-f3-desc': 'Ruang merangkumi bilik mesyuarat eksekutif sehingga dewan besar.',
-            'management-tag': 'KEPIMPINAN',
-            'management-title': 'Barisan Pengurusan Profesional',
-            'board-title': 'Lembaga Pengarah',
-            'member-1-name': "Dato' Haji Ahmad",
-            'member-1-pos': 'Pengerusi',
-            'member-2-name': 'Encik Mohamad',
-            'member-2-pos': 'Setiausaha',
-            'member-3-name': 'Puan Zarina',
-            'member-3-pos': 'Bendahari',
-            'careers-tag': 'SERTAI KAMI',
-            'careers-title': 'Peluang Kerjaya',
-            'job-1-title': 'Pelatih Pengurusan',
-            'job-1-desc': 'Mencari individu bertenaga untuk menyertai program pembangunan profesional kami.',
-            'btn-apply': 'Mohon Sekarang',
-            'downloads-tag': 'SUMBER',
-            'downloads-title': 'Borang & Dokumen',
-            'doc-1-title': 'Borang Keahlian',
-            'doc-2-title': 'Laporan Tahunan 2024',
-            'btn-download': 'Muat Turun PDF',
-            'chairman-title': 'Perutusan Daripada Pengerusi',
-            'chairman-msg': '"Adalah menjadi penghormatan besar bagi saya untuk memimpin KOPELADAR. Komitmen kami terhadap kecemerlangan dan pembangunan komuniti kekal sebagai keutamaan utama kami."',
-            'team-title': 'Pengurusan Profesional Kami',
-            'org-title': 'Carta Organisasi',
-            'customer-title': 'Kecemerlangan Berkhidmat',
-            'contact-title': 'Hubungi Kami',
-            'contact-desc': 'Mempunyai soalan atau ingin bekerjasama? Hubungi pasukan kami.',
-            'location': 'Lokasi',
-            'phone': 'Telefon',
-            'email': 'E-mel',
-            'name-ph': 'Nama Anda',
-            'email-ph': 'E-mel Anda',
-            'msg-ph': 'Mesej Anda',
-            'btn-send': 'Hantar Mesej',
-            'mission-desc': 'Menyaiperkhidmatan kewangan yang profesional dan telus, mengembangkan portfolio perniagaan, dan memupuk inovasi serta integriti dalam setiap usaha.',
-            'stat-years': 'Tahun Kecemerlangan',
-            'stat-members': 'Ahli Aktif',
-            'stat-assets': 'Aset RM Juta',
-            'stat-projects': 'Projek Utama',
-            'timeline-title': 'Warisan Pertumbuhan',
-            'footer-text': '© 2026 Koperasi Perkhidmatan Pelajaran Kelantan Berhad. Hak Cipta Terpelihara.'
-        }
-    };
+
+function initNavbarFeatures() {
 
     // LANGUAGE SWITCHER LOGIC
     const langBtns = document.querySelectorAll('.lang-btn');
@@ -294,15 +295,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // SCROLL ANIMATIONS (AOS)
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
-    }
-
     // HEADER SCROLL EFFECT
     const header = document.getElementById('main-header');
     window.addEventListener('scroll', () => {
@@ -336,6 +328,68 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // SMOOTH NAV ACTIVE LINK
+    window.addEventListener('scroll', () => {
+        let current = "";
+        const sections = document.querySelectorAll("section");
+        const navLi = document.querySelectorAll("#navbar ul li a");
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (window.scrollY >= sectionTop - 100) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLi.forEach((li) => {
+            li.classList.remove("active");
+            if (li.getAttribute("href") === `#${current}`) {
+                li.classList.add("active");
+            }
+        });
+    });
+
+    // THEME TOGGLE (DARK MODE)
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme == "dark") {
+            document.body.classList.add("dark-mode");
+            themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+            let theme = "light";
+            if (document.body.classList.contains("dark-mode")) {
+                theme = "dark";
+                themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+            } else {
+                themeToggle.querySelector('i').classList.replace('fa-sun', 'fa-moon');
+            }
+            localStorage.setItem("theme", theme);
+        });
+    }
+}
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+
+
+
+
+    // SCROLL ANIMATIONS (AOS)
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    }
+
 
     // ENTRANCE ANIMATIONS - Handled by AOS
 
@@ -441,26 +495,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // SMOOTH NAV ACTIVE LINK
-    window.addEventListener('scroll', () => {
-        let current = "";
-        const sections = document.querySelectorAll("section");
-        const navLi = document.querySelectorAll("#navbar ul li a");
 
-        sections.forEach((section) => {
-            const sectionTop = section.offsetTop;
-            if (window.scrollY >= sectionTop - 100) {
-                current = section.getAttribute("id");
-            }
-        });
-
-        navLi.forEach((li) => {
-            li.classList.remove("active");
-            if (li.getAttribute("href") === `#${current}`) {
-                li.classList.add("active");
-            }
-        });
-    });
 
     // MODERN FORM SUBMISSION
     const contactForm = document.getElementById('contactForm');
@@ -492,27 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // THEME TOGGLE (DARK MODE)
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        const currentTheme = localStorage.getItem("theme");
-        if (currentTheme == "dark") {
-            document.body.classList.add("dark-mode");
-            themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
-        }
 
-        themeToggle.addEventListener("click", function () {
-            document.body.classList.toggle("dark-mode");
-            let theme = "light";
-            if (document.body.classList.contains("dark-mode")) {
-                theme = "dark";
-                themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
-            } else {
-                themeToggle.querySelector('i').classList.replace('fa-sun', 'fa-moon');
-            }
-            localStorage.setItem("theme", theme);
-        });
-    }
 
     // SCROLL PROGRESS INDICATOR
     const scrollProgress = document.getElementById('scroll-progress');

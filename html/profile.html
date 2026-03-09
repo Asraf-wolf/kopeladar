@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Profile</title>
+    <style>
+        /* --- Base Setup --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* --- Corporate Card Layout --- */
+        .profile-card {
+            background: #fff;
+            padding: 60px 50px 50px 50px;
+            border-radius: 12px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 700px;
+            position: relative;
+        }
+
+        /* --- Inner Split Layout (Desktop) --- */
+        .card-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 40px;
+        }
+
+        /* --- Left Side: Avatar --- */
+        .avatar-section {
+            flex-shrink: 0;
+        }
+
+        .profile-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #f0f2f5;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        /* --- Right Side: Info --- */
+        .info-section {
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        h1 {
+            margin: 0 0 5px 0;
+            font-size: 26px;
+            color: #1a1a1a;
+            font-weight: 800;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 13px;
+            color: #757575;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Elegant blue accent line */
+        .divider {
+            width: 40px;
+            height: 3px;
+            background-color: #2196f3;
+            margin: 20px 0;
+            border-radius: 2px;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        /* --- Contact Information (Clean SVG Icons) --- */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .contact-item svg {
+            stroke: #757575;
+            transition: stroke 0.2s ease;
+        }
+
+        .contact-item:hover {
+            color: #2196f3;
+        }
+
+        .contact-item:hover svg {
+            stroke: #2196f3;
+        }
+
+        /* --- Sleek Icon-Only Back Button --- */
+        .back-link {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #757575;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            background: #f0f2f5;
+            color: #2196f3;
+        }
+
+        .error-msg {
+            color: #d32f2f;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* --- Mobile Responsiveness (OPTIMIZED) --- */
+        @media (max-width: 768px) {
+            .profile-card {
+                padding: 60px 25px 30px 25px;
+                /* Slightly less side padding for small phones */
+                margin: 15px;
+                /* Keeps the card off the literal edge of the screen */
+            }
+
+            .card-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .profile-image {
+                width: 120px;
+                /* Shrinks image so text fits better on screen */
+                height: 120px;
+            }
+
+            .info-section {
+                text-align: center;
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            /* Scales down the name slightly */
+
+            .divider {
+                margin: 20px auto;
+            }
+
+            .contact-item {
+                justify-content: center;
+                word-break: break-word;
+                /* Crucial: stops long emails from breaking the layout */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="profile-card" id="profile-container">
+        <p style="text-align: center; color: #757575;">Loading profile...</p>
+    </div>
+
+    <script>
+        // SVG Icon definitions
+        const iconBack = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>`;
+        const iconPhone = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>`;
+        const iconEmail = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`;
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const profileId = parseInt(urlParams.get('id'));
+        const container = document.getElementById('profile-container');
+
+        if (!profileId) {
+            container.innerHTML = `
+        <a href="../index.html" class="back-link" title="Back">${iconBack}</a>
+        <p class="error-msg">Error: No profile ID specified in the link.</p>
+    `;
+        } else {
+            fetch('../json/data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const person = data.find(staff => staff.id === profileId);
+
+                    if (person) {
+                        document.title = person.name + " - Profile";
+                        container.innerHTML = `
+            <a href="../index.html#organization" class="back-link" title="Back to Chart">${iconBack}</a>
+            <div class="card-content">
+                <div class="avatar-section">
+                    <img src="${person.image}" alt="${person.name}" class="profile-image">
+                </div>
+                <div class="info-section">
+                    <h1>${person.name}</h1>
+                    <h2>${person.title}</h2>
+                    <div class="divider"></div>
+                    <p>${person.bio}</p>
+                    <div class="contact-info">
+                        <a href="tel:${person.phone}" class="contact-item">
+                            ${iconPhone} <span>${person.phone}</span>
+                        </a>
+                        <a href="mailto:${person.email}" class="contact-item">
+                            ${iconEmail} <span>${person.email}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+          `;
+                    } else {
+                        container.innerHTML = `
+            <a href="../index.html#organization" class="back-link" title="Back">${iconBack}</a>
+            <p class="error-msg">Profile not found.</p>
+          `;
+                    }
+                })
+                .catch(error => {
+                    container.innerHTML = `
+            <a href="../index.html#organization" class="back-link" title="Back">${iconBack}</a>
+            <p class="error-msg">Error loading database.</p>
+        `;
+                    console.error('Error fetching data.json:', error);
+                });
+        }
+    </script>
+
+</body>
+
+</html>
