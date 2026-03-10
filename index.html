@@ -40,7 +40,68 @@
         </div>
     </div>
 
-    <div id="navbar-placeholder"></div>
+    <!-- NAVBAR -->
+    <header id="main-header">
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                    <img src="img/logo.png" alt="KOPELADAR Logo" class="logo-img">
+                    <span class="logo-text">KOPELADAR</span>
+                </a>
+            </div>
+
+            <nav id="navbar">
+                <ul>
+                    <li><a href="index.html#home" data-i18n="nav-home">Home</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" data-i18n="nav-corporate">Info Korporat <i
+                                class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 5px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html#chairman" data-i18n="nav-chairman">Perutusan Pengerusi</a></li>
+                            <li><a href="index.html#vision" data-i18n="nav-vision">Visi/Misi/Objektif</a></li>
+                            <li><a href="index.html#board" data-i18n="nav-board">Lembaga Kopeladar</a></li>
+                            <li><a href="index.html#management-team" data-i18n="nav-management-team">Barisan
+                                    Pengurusan</a></li>
+                            <li><a href="index.html#organization" data-i18n="nav-organization">Struktur Organisasi</a>
+                            </li>
+                            <li><a href="index.html#careers" data-i18n="nav-careers">Kerjaya</a></li>
+                            <li><a href="index.html#customer-service" data-i18n="nav-customer">Khidmat Pelanggan</a>
+                            </li>
+                            <li><a href="index.html#downloads" data-i18n="nav-downloads">Muat Turun Borang</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" data-i18n="nav-ventures">Perniagaan <i class="fas fa-chevron-down"
+                                style="font-size: 0.7rem; margin-left: 5px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="html/property.html" data-i18n="v-property-title">Hartanah</a></li>
+                            <li><a href="html/shell.html" data-i18n="v-petrol-title">Stesen Minyak (Shell)</a></li>
+                            <li><a href="html/partnerships.html" data-i18n="v-partner-title">Projek Kerjasama</a></li>
+                            <li><a href="html/mineral-water.html" data-i18n="v-water-title">Air Mineral</a>
+                            </li>
+                            <li><a href="html/hall-rental.html" data-i18n="v-hall-title">Perkhidmatan Sewa Dewan</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#contact" data-i18n="nav-contact">Hubungi Kami</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-right">
+                <div class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="lang-toggle" id="lang-toggle">
+                    <span class="lang-btn active" data-lang="en">EN</span>
+                    <span class="lang-divider">|</span>
+                    <span class="lang-btn" data-lang="ms">MY</span>
+                </div>
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <!-- HERO SECTION -->
     <section id="home" class="hero relative-overflow">
@@ -125,30 +186,30 @@
                 <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
                     <svg class="stat-svg" viewBox="0 0 100 100">
                         <circle class="bg" cx="50" cy="50" r="45"></circle>
-                        <circle class="progress" cx="50" cy="50" r="45" data-percent="85"></circle>
+                        <circle class="progress" cx="50" cy="50" r="45" data-percent="100"></circle>
                     </svg>
                     <div class="stat-content">
-                        <span class="count" data-target="15000">0</span>
+                        <span class="count" data-target="5408">0</span>
                         <p data-i18n="stat-members">Active Members</p>
                     </div>
                 </div>
                 <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
                     <svg class="stat-svg" viewBox="0 0 100 100">
                         <circle class="bg" cx="50" cy="50" r="45"></circle>
-                        <circle class="progress" cx="50" cy="50" r="45" data-percent="92"></circle>
+                        <circle class="progress" cx="50" cy="50" r="45" data-percent="100"></circle>
                     </svg>
                     <div class="stat-content">
-                        <span class="count" data-target="100">0</span>
+                        <span class="count" data-target="4">0</span>
                         <p data-i18n="stat-assets">RM Million Assets</p>
                     </div>
                 </div>
                 <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
                     <svg class="stat-svg" viewBox="0 0 100 100">
                         <circle class="bg" cx="50" cy="50" r="45"></circle>
-                        <circle class="progress" cx="50" cy="50" r="45" data-percent="75"></circle>
+                        <circle class="progress" cx="50" cy="50" r="45" data-percent="100"></circle>
                     </svg>
                     <div class="stat-content">
-                        <span class="count" data-target="12">0</span>
+                        <span class="count" data-target="14">0</span>
                         <p data-i18n="stat-projects">Key Projects</p>
                     </div>
                 </div>
@@ -378,48 +439,6 @@
         </div>
     </section>
 
-    <!-- MANAGEMENT SECTION -->
-    <section id="management" class="management section-padding">
-        <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
-                <h6 class="sub-title" data-i18n="management-tag">LEADERSHIP</h6>
-                <h2 data-i18n="management-title" class="masked-header">
-                    <span class="reveal-text"><span>Professional Board of Directors</span></span>
-                </h2>
-            </div>
-
-            <div class="management-grid">
-                <div class="member-card tilt-card" data-tilt data-aos="fade-up">
-                    <div class="member-img">
-                        <img src="https://via.placeholder.com/600x800" alt="Chairman">
-                    </div>
-                    <div class="member-info">
-                        <h4 data-i18n="member-1-name">Dato' Haji Ahmad</h4>
-                        <p data-i18n="member-1-pos">Chairman</p>
-                    </div>
-                </div>
-                <div class="member-card tilt-card" data-tilt data-aos="fade-up" data-aos-delay="100">
-                    <div class="member-img">
-                        <img src="https://via.placeholder.com/600x800" alt="Secretary">
-                    </div>
-                    <div class="member-info">
-                        <h4 data-i18n="member-2-name">Encik Mohamad</h4>
-                        <p data-i18n="member-2-pos">Secretary</p>
-                    </div>
-                </div>
-                <div class="member-card tilt-card" data-tilt data-aos="fade-up" data-aos-delay="200">
-                    <div class="member-img">
-                        <img src="https://via.placeholder.com/600x800" alt="Treasurer">
-                    </div>
-                    <div class="member-info">
-                        <h4 data-i18n="member-3-name">Puan Zarina</h4>
-                        <p data-i18n="member-3-pos">Treasurer</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- BOARD OF DIRECTORS (Lembaga Kopeladar) -->
     <section id="board" class="management section-padding">
         <div class="container">
@@ -431,31 +450,105 @@
             </div>
 
             <div class="management-grid">
+                <!-- Advisor -->
                 <div class="member-card tilt-card" data-tilt data-aos="fade-up">
                     <div class="member-img">
-                        <img src="https://via.placeholder.com/600x800" alt="Chairman">
+                        <img src="https://via.placeholder.com/600x800" alt="Advisor">
                     </div>
                     <div class="member-info">
-                        <h4 data-i18n="member-1-name">Dato' Haji Ahmad</h4>
-                        <p data-i18n="member-1-pos">Chairman</p>
+                        <h4>En. Mohd Faizool bin Hashim</h4>
+                        <p>Penasihat (Advisor)</p>
                     </div>
                 </div>
+                <!-- Members -->
                 <div class="member-card tilt-card" data-tilt data-aos="fade-up" data-aos-delay="100">
                     <div class="member-img">
-                        <img src="https://via.placeholder.com/600x800" alt="Secretary">
+                        <img src="https://via.placeholder.com/600x800" alt="Member">
                     </div>
                     <div class="member-info">
-                        <h4 data-i18n="member-2-name">Encik Mohamad</h4>
-                        <p data-i18n="member-2-pos">Secretary</p>
+                        <h4>En. Zakaria Bin Mohammad</h4>
+                        <p>Pengkalan Chepa</p>
                     </div>
                 </div>
                 <div class="member-card tilt-card" data-tilt data-aos="fade-up" data-aos-delay="200">
                     <div class="member-img">
-                        <img src="https://via.placeholder.com/600x800" alt="Treasurer">
+                        <img src="https://via.placeholder.com/600x800" alt="Member">
                     </div>
                     <div class="member-info">
-                        <h4 data-i18n="member-3-name">Puan Zarina</h4>
-                        <p data-i18n="member-3-pos">Treasurer</p>
+                        <h4>En. Rahim Bin Wan Samad</h4>
+                        <p>Pasir Mas</p>
+                    </div>
+                </div>
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up">
+                    <div class="member-img">
+                        <img src="https://via.placeholder.com/600x800" alt="Member">
+                    </div>
+                    <div class="member-info">
+                        <h4>En. Nasarudin Bin Muhamed</h4>
+                        <p>Rantau Panjang</p>
+                    </div>
+                </div>
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up" data-aos-delay="100">
+                    <div class="member-img">
+                        <img src="https://via.placeholder.com/600x800" alt="Member">
+                    </div>
+                    <div class="member-info">
+                        <h4>En. Mohd Rosdin Bin Ab Rashid</h4>
+                        <p>Machang</p>
+                    </div>
+                </div>
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up" data-aos-delay="200">
+                    <div class="member-img">
+                        <img src="https://via.placeholder.com/600x800" alt="Member">
+                    </div>
+                    <div class="member-info">
+                        <h4>Tuan Hj. Ahmad Farid</h4>
+                        <p>Kuala Krai</p>
+                    </div>
+                </div>
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up">
+                    <div class="member-img">
+                        <img src="https://via.placeholder.com/600x800" alt="Member">
+                    </div>
+                    <div class="member-info">
+                        <h4>En. Hadi bin Daud</h4>
+                        <p>Gua Musang</p>
+                    </div>
+                </div>
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up" data-aos-delay="100">
+                    <div class="member-img">
+                        <img src="https://via.placeholder.com/600x800" alt="Member">
+                    </div>
+                    <div class="member-info">
+                        <h4>En. Mohd Razali Bin Ahmad</h4>
+                        <p>Tanah Merah</p>
+                    </div>
+                </div>
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up" data-aos-delay="200">
+                    <div class="member-img">
+                        <img src="https://via.placeholder.com/600x800" alt="Member">
+                    </div>
+                    <div class="member-info">
+                        <h4>En. Isfaizal Fazil Bin Ismail</h4>
+                        <p>Jeli</p>
+                    </div>
+                </div>
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up">
+                    <div class="member-img">
+                        <img src="https://via.placeholder.com/600x800" alt="Member">
+                    </div>
+                    <div class="member-info">
+                        <h4>En. Mohd Shamsuri bin Mamat</h4>
+                        <p>Bachok</p>
+                    </div>
+                </div>
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up" data-aos-delay="100">
+                    <div class="member-img">
+                        <img src="https://via.placeholder.com/600x800" alt="Member">
+                    </div>
+                    <div class="member-info">
+                        <h4>YM Raja Soh Bin Nik Him</h4>
+                        <p>Ketereh</p>
                     </div>
                 </div>
             </div>
@@ -469,8 +562,31 @@
                 <h6 class="sub-title" data-i18n="nav-management-team">Barisan Pengurusan</h6>
                 <h2 data-i18n="team-title">Our Professional Management</h2>
             </div>
-            <div class="text-center" data-aos="fade-up">
-                <p style="font-size: 1.2rem; color: var(--gray-dark);">(Section Under Development)</p>
+            <div class="management-grid">
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up">
+                    <div class="member-info">
+                        <h4>Engku Abdul Hakim Bin Engku Azman</h4>
+                        <p>Pengurus Pentadbiran, Perakaunan & Kewangan</p>
+                    </div>
+                </div>
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up" data-aos-delay="100">
+                    <div class="member-info">
+                        <h4>Muhammad Zulbazli Aifat Bin Abd Razak</h4>
+                        <p>Pengurus Stesen Minyak</p>
+                    </div>
+                </div>
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up" data-aos-delay="200">
+                    <div class="member-info">
+                        <h4>Ahmad Zulfakar Bin Zainuddin</h4>
+                        <p>Eksekutif Operasi Perniagaan</p>
+                    </div>
+                </div>
+                <div class="member-card tilt-card" data-tilt data-aos="fade-up">
+                    <div class="member-info">
+                        <h4>Wan Aqil Danial Bin Wan Ahmad Saifullizan</h4>
+                        <p>Kerani</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -676,7 +792,7 @@
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="contact section-padding bg-light">
-        <div class="container">
+        <div class="container" data-aos="fade-up">
             <div class="contact-box">
                 <div class="row">
                     <div class="col-5">
@@ -690,7 +806,8 @@
                                     <i class="fas fa-map-marker-alt"></i>
                                     <div>
                                         <h5 data-i18n="location">Location</h5>
-                                        <p>Kota Bharu, Kelantan, Malaysia</p>
+                                        <p data-i18n="address">No 4779 Jalan Kampung Dusun, 15200, Kota Bharu, Kelantan
+                                        </p>
                                     </div>
                                 </li>
                                 <li>
@@ -730,7 +847,8 @@
                                     <label for="message" data-i18n-placeholder="msg-ph">Enter your inquiry...</label>
                                     <i class="fas fa-check-circle validation-icon"></i>
                                 </div>
-                                <button type="submit" class="btn btn-primary magnetic-btn" data-i18n="btn-send">
+                                <button type="submit" class="btn btn-primary magnetic-btn" data-i18n="btn-send"
+                                    data-aos="zoom-in" data-aos-delay="300">
                                     <span>Submit Inquiry</span>
                                 </button>
                             </form>
@@ -813,20 +931,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script>
-        fetch('/html/navbar.html') // (or 'html/navbar.html' if on index.html)
-            .then(response => response.text())
-            .then(data => {
-                // Paste the navbar onto the screen
-                document.getElementById('navbar-placeholder').innerHTML = data;
-
-                // THE FIX: Now that the navbar exists, turn on the buttons!
-                if (typeof initNavbarFeatures === 'function') {
-                    initNavbarFeatures();
-                }
-            })
-            .catch(error => console.error('Error loading the navbar:', error));
-    </script>
+    <!-- Navigation is now inlined and initialized in main.js for file:// compatibility -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>

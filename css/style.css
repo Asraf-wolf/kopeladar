@@ -1934,8 +1934,34 @@ body.dark-mode .chairman-text p {
 /* Magnetic Button Base */
 .magnetic-btn {
     position: relative;
-    overflow: hidden;
     display: inline-block;
+    transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.magnetic-btn>* {
+    display: inline-block;
+    pointer-events: none;
+    transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.magnetic-btn:hover {
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
+}
+
+.magnetic-btn.submitting {
+    opacity: 0.8;
+    cursor: wait;
+}
+
+.magnetic-btn.submitted {
+    background: #4ade80 !important;
+    color: white !important;
+    border-color: #4ade80 !important;
+    transform: scale(1.05) !important;
+}
+
+.magnetic-btn.submitted i {
+    margin-right: 8px;
 }
 
 @keyframes checkmarkPop {

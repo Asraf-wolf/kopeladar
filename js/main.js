@@ -15,7 +15,7 @@ const translations = {
         'nav-contact': 'Contact Us',
         'hero-title-1': 'Pioneering',
         'hero-title-2': 'Corporate Excellence',
-        'hero-subtitle': 'Empowering the community of Kelantan through sustainable business ventures and professional services for over 50 years.',
+        'hero-subtitle': 'Koperasi Peserta Ladang Rakyat Negeri Kelantan Berhad (D-5-0451) - Driving socio-economic growth for the community of Kelantan through strategic business and property ventures.',
         'btn-explore': 'Explore Ventures',
         'btn-contact': 'Get In Touch',
         'scroll': 'Scroll Down',
@@ -23,7 +23,7 @@ const translations = {
         'about-title': 'Legacy of Trust & Growth',
         'years-exp': 'Years of Excellence',
         'vision-title': 'Our Vision',
-        'vision-desc': 'To be a leading cooperative organization that creates high value for its members and contributes significantly to the socio-economic development of Kelantan.',
+        'vision-desc': 'To be a premier cooperative that empowers the socio-economic development of Ladang Rakyat participants and the wider Kelantan community.',
         'mission-title': 'Our Mission',
         'mission-1': 'Delivering professional and transparent financial services.',
         'mission-2': 'Expanding business portfolios in property and retail.',
@@ -35,12 +35,12 @@ const translations = {
         'news-title': 'Corporate News & Announcements',
         'success-title': 'Thank You!',
         'success-desc': 'Your message has been received. We will get back to you shortly.',
-        'v-property-title': 'Property Development',
-        'v-property-desc': 'Developing premium residential and commercial projects across Kelantan.',
+        'v-property-title': 'Property & Assets',
+        'v-property-desc': 'Strategic real estate holdings including building rentals in Wakaf Bharu and commercial land in Gua Musang.',
         'v-petrol-title': 'Retail & Petrol (Shell)',
-        'v-petrol-desc': 'Managing state-of-the-art Shell petrol stations and convenience stores.',
+        'v-petrol-desc': 'Our premier Shell station in Bandar Tunjung, Kota Bharu, operational since December 2022.',
         'v-water-title': 'Mineral Water Production',
-        'v-water-desc': 'Supplying high-quality mineral water to distributors and the general public.',
+        'v-water-desc': 'Producing EAU Choice mineral water since 2018, with KOPELADAR brand coming soon.',
         'v-partner-title': 'Partnership Projects',
         'v-partner-desc': 'Collaborating on strategic development and investment projects.',
         'v-hall-title': 'Hall Rental Services',
@@ -111,18 +111,19 @@ const translations = {
         'customer-title': 'Excellence in Service',
         'contact-title': 'Contact Us',
         'contact-desc': 'Have questions or want to collaborate? Reach out to our team.',
-        'location': 'Location',
+        'location': 'KOPELADAR HQ',
+        'address': 'No 4779 Jalan Kampung Dusun, 15200, Kota Bharu, Kelantan',
         'phone': 'Phone',
         'email': 'Email',
         'name-ph': 'Your Name',
         'email-ph': 'Your Email',
         'msg-ph': 'Your Message',
-        'btn-send': 'Send Message',
+        'btn-send': 'Submit Inquiry',
         'mission-desc': 'Delivering professional and transparent financial services, expanding business portfolios, and fostering innovation and integrity in every venture.',
-        'stat-years': 'Years Excellence',
+        'stat-years': 'Years of Service',
         'stat-members': 'Active Members',
         'stat-assets': 'RM Million Assets',
-        'stat-projects': 'Key Projects',
+        'stat-projects': 'Service Districts',
         'timeline-title': 'Legacy of Growth',
         'footer-text': '© 2026 Koperasi Perkhidmatan Pelajaran Kelantan Berhad. All Rights Reserved.'
     },
@@ -141,7 +142,7 @@ const translations = {
         'nav-contact': 'Hubungi Kami',
         'hero-title-1': 'Menerajui',
         'hero-title-2': 'Kecemerlangan Korporat',
-        'hero-subtitle': 'Memberdayakan komuniti Kelantan melalui usaha perniagaan yang mampan selama lebih 50 tahun.',
+        'hero-subtitle': 'Koperasi Peserta Ladang Rakyat Negeri Kelantan Berhad (D-5-0451) - Memacu pertumbuhan sosio-ekonomi komuniti Kelantan melalui usaha perniagaan dan hartanah strategik.',
         'btn-explore': 'Teroka Perniagaan',
         'btn-contact': 'Hubungi Kami',
         'scroll': 'Skrol Bawah',
@@ -149,7 +150,7 @@ const translations = {
         'about-title': 'Warisan Kepercayaan & Pertumbuhan',
         'years-exp': 'Tahun Kecemerlangan',
         'vision-title': 'Visi Kami',
-        'vision-desc': 'Menjadi organisasi koperasi terkemuka yang mencipta nilai tinggi kepada ahli dan menyumbang secara signifikan kepada pembangunan sosio-ekonomi Kelantan.',
+        'vision-desc': 'Menjadi koperasi terkemuka yang memperkasa pembangunan sosio-ekonomi Peserta Ladang Rakyat dan seluruh komuniti Negeri Kelantan.',
         'mission-title': 'Misi Kami',
         'mission-1': 'Menyampaikan perkhidmatan kewangan yang profesional dan telus.',
         'mission-2': 'Mengembangkan portfolio perniagaan dalam hartanah dan peruncitan.',
@@ -161,12 +162,12 @@ const translations = {
         'news-title': 'Berita & Pengumuman Korporat',
         'success-title': 'Terima Kasih!',
         'success-desc': 'Mesej anda telah diterima. Kami akan menghubungi anda tidak lama lagi.',
-        'v-property-title': 'Pembangunan Hartanah',
-        'v-property-desc': 'Membangunkan projek kediaman dan komersial premium di seluruh Kelantan.',
+        'v-property-title': 'Hartanah & Aset',
+        'v-property-desc': 'Pemilikan hartanah strategik termasuk sewa bangunan di Wakaf Bharu dan lot tanah di Gua Musang.',
         'v-petrol-title': 'Runcit & Petrol (Shell)',
-        'v-petrol-desc': 'Menguruskan stesen minyak Shell dan pusat perkhidmatan kedai serbaneka yang canggih.',
+        'v-petrol-desc': 'Stesen Shell utama kami di Bandar Tunjung, Kota Bharu, beroperasi sejak 30 Disember 2022.',
         'v-water-title': 'Pengeluaran Air Mineral',
-        'v-water-desc': 'Membekalkan air mineral berkualiti tinggi kepada pengedar dan orang ramai.',
+        'v-water-desc': 'Mengeluarkan air mineral EAU Choice sejak 2018, dengan jenama KOPELADAR dalam proses.',
         'v-partner-title': 'Projek Kerjasama',
         'v-partner-desc': 'Bekerjasama dalam projek pembangunan dan pelaburan strategik.',
         'v-hall-title': 'Perkhidmatan Sewa Dewan',
@@ -237,36 +238,44 @@ const translations = {
         'customer-title': 'Kecemerlangan Berkhidmat',
         'contact-title': 'Hubungi Kami',
         'contact-desc': 'Mempunyai soalan atau ingin bekerjasama? Hubungi pasukan kami.',
-        'location': 'Lokasi',
+        'location': 'Ibu Pejabat KOPELADAR',
+        'address': 'No 4779 Jalan Kampung Dusun, 15200, Kota Bharu, Kelantan',
         'phone': 'Telefon',
         'email': 'E-mel',
         'name-ph': 'Nama Anda',
         'email-ph': 'E-mel Anda',
         'msg-ph': 'Mesej Anda',
-        'btn-send': 'Hantar Mesej',
+        'btn-send': 'Hantar Pertanyaan',
         'mission-desc': 'Menyaiperkhidmatan kewangan yang profesional dan telus, mengembangkan portfolio perniagaan, dan memupuk inovasi serta integriti dalam setiap usaha.',
-        'stat-years': 'Tahun Kecemerlangan',
+        'stat-years': 'Tahun Berkhidmat',
         'stat-members': 'Ahli Aktif',
         'stat-assets': 'Aset RM Juta',
-        'stat-projects': 'Projek Utama',
+        'stat-projects': 'Peringkat Kawasan',
         'timeline-title': 'Warisan Pertumbuhan',
         'footer-text': '© 2026 Koperasi Perkhidmatan Pelajaran Kelantan Berhad. Hak Cipta Terpelihara.'
     }
 };
 
 
-function initNavbarFeatures() {
+// GLOBAL STATE
+window.currentLang = localStorage.getItem('language') || 'en';
 
-    // LANGUAGE SWITCHER LOGIC
+function initNavbarFeatures() {
     const langBtns = document.querySelectorAll('.lang-btn');
-    let currentLang = localStorage.getItem('language') || 'en';
+    const themeToggle = document.getElementById('theme-toggle');
+    const header = document.getElementById('main-header');
 
     function setLanguage(lang) {
         currentLang = lang;
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[lang] && translations[lang][key]) {
-                el.innerText = translations[lang][key];
+                const span = el.querySelector('span');
+                if (span) {
+                    span.innerText = translations[lang][key];
+                } else {
+                    el.innerText = translations[lang][key];
+                }
             }
         });
 
@@ -289,21 +298,25 @@ function initNavbarFeatures() {
     setLanguage(currentLang);
 
     langBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
             const lang = btn.getAttribute('data-lang');
             setLanguage(lang);
         });
     });
 
     // HEADER SCROLL EFFECT
-    const header = document.getElementById('main-header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+    if (header) {
+        const updateHeader = () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+        window.addEventListener('scroll', updateHeader);
+        updateHeader(); // Initial check
+    }
 
     // MOBILE TOGGLE
     const mobileToggle = document.getElementById('mobile-toggle');
@@ -351,24 +364,51 @@ function initNavbarFeatures() {
     });
 
     // THEME TOGGLE (DARK MODE)
-    const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
         const currentTheme = localStorage.getItem("theme");
         if (currentTheme == "dark") {
             document.body.classList.add("dark-mode");
-            themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+            const icon = themeToggle.querySelector('i');
+            if (icon) icon.classList.replace('fa-moon', 'fa-sun');
         }
 
         themeToggle.addEventListener("click", function () {
             document.body.classList.toggle("dark-mode");
             let theme = "light";
+            const icon = themeToggle.querySelector('i');
             if (document.body.classList.contains("dark-mode")) {
                 theme = "dark";
-                themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+                if (icon) icon.classList.replace('fa-moon', 'fa-sun');
             } else {
-                themeToggle.querySelector('i').classList.replace('fa-sun', 'fa-moon');
+                if (icon) icon.classList.replace('fa-sun', 'fa-moon');
             }
             localStorage.setItem("theme", theme);
+        });
+    }
+
+    // PATH CORRECTION (For pages in /html/ subfolder)
+    const isSubfolder = window.location.pathname.includes('/html/');
+    if (isSubfolder) {
+        document.querySelectorAll('#navbar a, .logo a').forEach(link => {
+            let href = link.getAttribute('href');
+            if (href && !href.startsWith('http') && !href.startsWith('javascript') && !href.startsWith('#')) {
+                // If the link is to another page in html folder, keep it relative
+                if (href.startsWith('html/')) {
+                    link.setAttribute('href', href.replace('html/', ''));
+                }
+                // If it's a root-relative link like index.html or img/
+                else if (href.startsWith('index.html') || href.startsWith('img/') || href.startsWith('js/') || href.startsWith('css/')) {
+                    link.setAttribute('href', '../' + href);
+                }
+            }
+        });
+
+        // Correct ALL Images starting with img/ for subfolders
+        document.querySelectorAll('img').forEach(img => {
+            let src = img.getAttribute('src');
+            if (src && src.startsWith('img/')) {
+                img.setAttribute('src', '../' + src);
+            }
         });
     }
 }
@@ -376,6 +416,11 @@ function initNavbarFeatures() {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // Initialize Navbar if it exists in static HTML
+    if (typeof initNavbarFeatures === 'function') {
+        initNavbarFeatures();
+    }
 
 
 
@@ -503,18 +548,27 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const btn = contactForm.querySelector('button');
-            const originalText = btn.innerText;
-            btn.innerHTML = `<span>${currentLang === 'en' ? 'Sending...' : 'Menghantar...'}</span>`;
+            const btn = contactForm.querySelector('button[type="submit"]');
+            // Immediate Feedback
+            btn.classList.add('submitting');
+            const span = btn.querySelector('span');
+            if (span) span.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${currentLang === 'en' ? 'Sending...' : 'Menghantar...'}`;
             btn.disabled = true;
 
             // Simulate API call
             setTimeout(() => {
-                contactForm.classList.add('hidden');
-                document.getElementById('formSuccess').classList.add('active');
-                contactForm.reset();
-                btn.innerHTML = `<span>${originalText}</span>`;
-                btn.disabled = false;
+                if (span) span.innerHTML = `<i class="fas fa-check"></i> ${currentLang === 'en' ? 'Sent!' : 'Dihantar!'}`;
+                btn.classList.remove('submitting');
+                btn.classList.add('submitted');
+
+                setTimeout(() => {
+                    contactForm.classList.add('hidden');
+                    document.getElementById('formSuccess').classList.add('active');
+                    contactForm.reset();
+                    btn.classList.remove('submitted');
+                    btn.disabled = false;
+                    if (span) span.innerText = translations[currentLang]['btn-send'];
+                }, 1000);
             }, 1500);
         });
     }
@@ -568,14 +622,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // MAGNETIC BUTTONS
     const magneticBtns = document.querySelectorAll('.magnetic-btn');
     magneticBtns.forEach(btn => {
+        const children = btn.children;
+
         btn.addEventListener('mousemove', function (e) {
             const position = btn.getBoundingClientRect();
             const x = e.clientX - position.left - position.width / 2;
             const y = e.clientY - position.top - position.height / 2;
-            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px)`;
+
+            // Move the button
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+
+            // Move the children inside a bit more for "liquid" effect
+            if (children.length > 0) {
+                Array.from(children).forEach(child => {
+                    child.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+                });
+            }
         });
-        btn.addEventListener('mouseout', function (e) {
+
+        btn.addEventListener('mouseleave', function (e) {
             btn.style.transform = 'translate(0px, 0px)';
+            if (children.length > 0) {
+                Array.from(children).forEach(child => {
+                    child.style.transform = 'translate(0px, 0px)';
+                });
+            }
         });
     });
 
