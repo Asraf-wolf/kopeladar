@@ -413,69 +413,57 @@ function initNavbarFeatures() {
     }
 }
 
-// 1. YOUR CONFIGURATION
-const NOTION_TOKEN = "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";
-const DATABASE_ID = "32132d571f31805b97f5c8f3a1b3e44f";
+/**
+ * KOPELADAR - News & Announcements (Notion Sync via Cloudflare)
+ */
 
-// 2. PROXY CONFIG (Using AllOrigins to fix the CORS error in your screenshot)
-const PROXY_URL = "https://api.allorigins.win/get?url=";
-const NOTION_API_URL = `https://api.notion.com/v1/databases/${DATABASE_ID}/query`;
+// 1. YOUR BRIDGE URL (The only thing you need here now!)
+const WORKER_URL = "https://kopeladar-bridge.dzulamri070.workers.dev";
 
 async function fetchActivities() {
     try {
-        console.log("Attempting to fetch data via AllOrigins...");
+        console.log("Connecting to Cloudflare Bridge...");
 
-        // We use encodeURIComponent to safely wrap the Notion URL inside the Proxy URL
-        const fetchUrl = `${PROXY_URL}${encodeURIComponent(NOTION_API_URL)}`;
+        const response = await fetch(WORKER_URL);
 
-        const response = await fetch(fetchUrl, {
-            method: "POST", // Notion still requires POST
-            headers: {
-                "Authorization": `Bearer ${NOTION_TOKEN}`,
-                "Notion-Version": "2022-06-28",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({})
-        });
+        if (!response.ok) throw new Error("Bridge connection failed");
 
-        if (!response.ok) throw new Error(`Proxy failed: ${response.status}`);
+        const data = await response.json();
 
-        const wrapper = await response.json();
-
-        // AllOrigins wraps the Notion response in a string called 'contents'
-        // We MUST parse this string to get our cards
-        const data = JSON.parse(wrapper.contents);
-
-        if (data.object === "error") {
-            throw new Error(`Notion Error: ${data.message}`);
+        if (data.results) {
+            console.log("Success! Data from Bridge:", data.results.length, "items found.");
+            renderCards(data.results);
+        } else {
+            throw new Error("No results found in Notion response");
         }
-
-        console.log("Success! Data received:", data);
-        renderCards(data.results);
 
     } catch (error) {
         console.error("DEBUG ERROR:", error);
         document.getElementById('activity-container').innerHTML = `
-            <div style="color: #721c24; background: #f8d7da; padding: 20px; border-radius: 8px;">
-                <p><strong>Failed to sync with Notion</strong></p>
-                <small>${error.message}</small>
+            <div style="text-align:center; padding: 40px; color: #721c24; background: #f8d7da; border-radius: 20px; width: 100%;">
+                <p><strong>Offline</strong></p>
+                <small>The database bridge is currently unavailable.</small>
             </div>`;
     }
 }
+
 function renderCards(events) {
     const container = document.getElementById('activity-container');
     container.innerHTML = ""; // Clear loading message
 
     events.forEach(event => {
-        // Data Extraction
+        // Data Extraction matching your specific Notion properties
         const titleProp = event.properties.Name || event.properties.Heading || event.properties.title;
         const title = titleProp?.title[0]?.plain_text || "Untitled Event";
+
         const date = event.properties["Event Date"]?.date?.start || "TBA";
         const desc = event.properties.Description?.rich_text[0]?.plain_text || "";
-        const imgObj = event.properties.Thumbnail?.files[0];
-        const img = imgObj?.file?.url || imgObj?.external?.url || "https://via.placeholder.com/400x250";
 
-        // Generate HTML matching your CSS
+        // Handle images (prioritizes Notion uploads, then external links, then placeholder)
+        const imgObj = event.properties.Thumbnail?.files[0];
+        const img = imgObj?.file?.url || imgObj?.external?.url || "https://placehold.co/600x400?text=KOPELADAR";
+
+        // Generate HTML matching your custom CSS
         container.innerHTML += `
             <div class="swiper-slide">
                 <article class="news-card">
@@ -499,7 +487,7 @@ function renderCards(events) {
     new Swiper('.news-swiper', {
         slidesPerView: 1,
         spaceBetween: 30,
-        loop: false,
+        loop: false, // Prevents errors with fewer than 3 cards
         pagination: { el: '.swiper-pagination', clickable: true },
         navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
         breakpoints: {
@@ -509,9 +497,8 @@ function renderCards(events) {
     });
 }
 
-// Start the fetch
+// Start the fetch process
 fetchActivities();
-
 
 //main organizational chart
 function buildOrgChart() {
