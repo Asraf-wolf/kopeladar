@@ -201,6 +201,8 @@
         <p style="text-align: center; color: #757575;">Loading profile...</p>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
     <script>
         // SVG Icon definitions
         const iconBack = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>`;
@@ -208,60 +210,68 @@
         const iconEmail = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`;
 
         const urlParams = new URLSearchParams(window.location.search);
-        const profileId = parseInt(urlParams.get('id'));
+        const profileId = urlParams.get('id');
+        const tabName = urlParams.get('tab') || 'MainBoard';
         const container = document.getElementById('profile-container');
 
-        if (!profileId) {
+        // THE DICTIONARY: PASTE YOUR 3 LINKS HERE
+        const csvLinks = {
+            'MainBoard': 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT7-O4rGW_NFEyz98H8oCjpjkrjKaaidnz9eSt9OKBg5HLcnCG5HHee-OOzZyzGTvuvysIy5nLbV8EL/pub?gid=0&single=true&output=csv',
+            'Lembaga': 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT7-O4rGW_NFEyz98H8oCjpjkrjKaaidnz9eSt9OKBg5HLcnCG5HHee-OOzZyzGTvuvysIy5nLbV8EL/pub?gid=1832132001&single=true&output=csv',
+            'Pengurusan': 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT7-O4rGW_NFEyz98H8oCjpjkrjKaaidnz9eSt9OKBg5HLcnCG5HHee-OOzZyzGTvuvysIy5nLbV8EL/pub?gid=1506679708&single=true&output=csv'
+        };
+
+        if (!profileId || !csvLinks[tabName]) {
             container.innerHTML = `
-        <a href="../index.html" class="back-link" title="Back">${iconBack}</a>
-        <p class="error-msg">Error: No profile ID specified in the link.</p>
-    `;
+                <a href="index.html#organization" class="back-link">${iconBack}</a>
+                <p class="error-msg">Error: Profile ID or Tab missing.</p>
+            `;
         } else {
-            fetch('../data.json')
-                .then(response => response.json())
-                .then(data => {
-                    const person = data.find(staff => staff.id === profileId);
+            // Use PapaParse to download the specific CSV from the dictionary
+            Papa.parse(csvLinks[tabName], {
+                download: true,
+                header: true,
+                complete: function (results) {
+                    const data = results.data;
+                    const person = data.find(staff => staff.id == profileId);
 
                     if (person) {
                         document.title = person.name + " - Profile";
                         container.innerHTML = `
-            <a href="../index.html#organization" class="back-link" title="Back to Chart">${iconBack}</a>
-            <div class="card-content">
-                <div class="avatar-section">
-                    <img src="${person.image}" alt="${person.name}" class="profile-image">
-                </div>
-                <div class="info-section">
-                    <h1>${person.name}</h1>
-                    <h2>${person.title}</h2>
-                    <div class="divider"></div>
-                    <p>${person.bio}</p>
-                    <div class="contact-info">
-                        <a href="tel:${person.phone}" class="contact-item">
-                            ${iconPhone} <span>${person.phone}</span>
-                        </a>
-                        <a href="mailto:${person.email}" class="contact-item">
-                            ${iconEmail} <span>${person.email}</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-          `;
+                            <a href="index.html#organization" class="back-link" title="Back to Chart">${iconBack}</a>
+                            <div class="card-content">
+                                <div class="avatar-section">
+                                    <img src="${person.image}" alt="${person.title}" class="profile-image">
+                                </div>
+                                <div class="info-section">
+                                    <h1>${person.name}</h1>
+                                    <h2>${person.title}</h2>
+                                    <div class="divider"></div>
+                                    <p>${person.bio}</p>
+                                    <div class="contact-info">
+                                        <a href="tel:${person.phone}" class="contact-item">
+                                            ${iconPhone} <span>${person.phone}</span>
+                                        </a>
+                                        <a href="mailto:${person.email}" class="contact-item">
+                                            ${iconEmail} <span>${person.email}</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
                     } else {
                         container.innerHTML = `
-            <a href="../index.html#organization" class="back-link" title="Back">${iconBack}</a>
-            <p class="error-msg">Profile not found.</p>
-          `;
+                            <a href="index.html#organization" class="back-link">${iconBack}</a>
+                            <p class="error-msg">Profile not found on the ${tabName} tab.</p>
+                        `;
                     }
-                })
-                .catch(error => {
-                    container.innerHTML = `
-            <a href="../index.html#organization" class="back-link" title="Back">${iconBack}</a>
-            <p class="error-msg">Error loading database.</p>
-        `;
-                    console.error('Error fetching data.json:', error);
-                });
+                }
+            });
         }
+
     </script>
+
+
 
 </body>
 

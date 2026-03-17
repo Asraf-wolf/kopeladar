@@ -1219,6 +1219,7 @@ h4,
 }
 
 /* MANAGEMENT */
+/* MANAGEMENT */
 .management-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1230,18 +1231,37 @@ h4,
     background: var(--white);
     border: 1px solid var(--gray-border);
     transition: var(--transition);
-    border-radius: 4px;
+    border-radius: 20px;
+    /* Softened the corners of the card */
     overflow: hidden;
+    padding-top: 40px;
+    /* Pushes the avatar down from the ceiling */
 }
 
+/* Centers the image container */
+.member-img {
+    display: flex;
+    justify-content: center;
+}
+
+/* The new circular avatar styling */
 .member-img img {
-    width: 100%;
-    height: 350px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
     object-fit: cover;
+    border: 4px solid var(--gray-light);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease;
+}
+
+/* Adds a slight zoom effect on hover just like the main chart */
+.member-card:hover .member-img img {
+    transform: scale(1.05);
 }
 
 .member-info {
-    padding: 20px;
+    padding: 25px 20px 40px 20px;
     text-align: center;
 }
 
@@ -2812,4 +2832,108 @@ body.dark-mode .mega-footer {
     .blog-img-wrap {
         height: 200px;
     }
+}
+
+/* ==========================================
+   OFFICE MANAGEMENT CHART (STANDARD TREE)
+   ========================================== */
+.management-tree {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    overflow-x: auto;
+    /* Allows swiping on mobile */
+    padding-bottom: 20px;
+}
+
+.management-tree ul {
+    padding-top: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+}
+
+.management-tree li {
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 20px 10px 0 10px;
+}
+
+/* We will use the exact same card style as the Main Chart */
+.management-tree li a {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    background: var(--white);
+    padding: 20px 30px;
+    border-radius: 16px;
+    border: 1px solid var(--gray-border);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    min-width: 220px;
+}
+
+.management-tree li a:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+}
+
+/* Connecting Lines Logic */
+.management-tree li::before,
+.management-tree li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 2px solid var(--gray-border);
+    width: 50%;
+    height: 20px;
+}
+
+.management-tree li::after {
+    right: auto;
+    left: 50%;
+    border-left: 2px solid var(--gray-border);
+}
+
+/* Remove lines from only children */
+.management-tree li:only-child::after,
+.management-tree li:only-child::before {
+    display: none;
+}
+
+.management-tree li:only-child {
+    padding-top: 0;
+}
+
+/* First and Last Child logic for horizontal lines */
+.management-tree li:first-child::before,
+.management-tree li:last-child::after {
+    border: 0 none;
+}
+
+.management-tree li:last-child::before {
+    border-right: 2px solid var(--gray-border);
+    border-radius: 0 5px 0 0;
+}
+
+.management-tree li:first-child::after {
+    border-radius: 5px 0 0 0;
+}
+
+/* Downward vertical lines from parents */
+.management-tree ul ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 2px solid var(--gray-border);
+    width: 0;
+    height: 20px;
+    transform: translateX(-50%);
 }
