@@ -415,118 +415,68 @@ function initNavbarFeatures() {
 
 // ... [End of your initNavbarFeatures function] ...
 
-/**
- * KOPELADAR - Blog/News Section
- * Logic: Mock data for client consultation
- */
-
-
-// 4 Dummy Pages with High-Quality Image Placeholders
-const mockEvents = [
-    {
-        url: "dummy1.html",
-        category: "Corporate",
-        thumbnail: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800",
-        properties: {
-            Name: { title: [{ plain_text: "Mesyuarat Agung Tahunan Ke-52" }] },
-            "Event Date": { date: { start: "2026-05-20" } },
-            Description: { rich_text: [{ plain_text: "Sesi perbincangan hala tuju strategik KOPELADAR bagi tahun kewangan 2026/2027." }] }
-        }
-    },
-    {
-        url: "dummy2.html",
-        category: "Charity",
-        thumbnail: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?q=80&w=800",
-        properties: {
-            Name: { title: [{ plain_text: "Program Infaq Ramadan KOPELADAR" }] },
-            "Event Date": { date: { start: "2026-03-10" } },
-            Description: { rich_text: [{ plain_text: "Sumbangan bakul makanan dan keperluan asas kepada asnaf di Kota Bharu." }] }
-        }
-    },
-    {
-        url: "dummy3.html",
-        category: "Business",
-        thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800",
-        properties: {
-            Name: { title: [{ plain_text: "Pelancaran Produk Air Mineral Baru" }] },
-            "Event Date": { date: { start: "2026-02-15" } },
-            Description: { rich_text: [{ plain_text: "KOPELADAR memperkenalkan pembungkusan mesra alam bagi produk mineral premium." }] }
-        }
-    },
-    {
-        url: "dummy4.html",
-        category: "Operations",
-        thumbnail: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800",
-        properties: {
-            Name: { title: [{ plain_text: "Lawatan Kerja Stesen Shell" }] },
-            "Event Date": { date: { start: "2026-01-05" } },
-            Description: { rich_text: [{ plain_text: "Audit kualiti perkhidmatan pelanggan bagi memastikan piawaian Shell dipatuhi." }] }
-        }
-    }
-];
-
+// ==========================================
+// KOPELADAR EVENTS GALLERY BUILDER
+// ==========================================
 async function fetchActivities() {
     const container = document.getElementById('activity-container');
     if (!container) return;
 
     try {
-        const response = await fetch(WORKER_URL);
-        const data = await response.json();
+        // Fetch the master list created by our Cloudflare build script
+        const response = await fetch('data/events-index.json');
+        if (!response.ok) throw new Error('No events index found');
+        const events = await response.json();
 
-        if (data.results && data.results.length > 0) {
-            renderBlogCards(data.results);
-        } else {
-            renderBlogCards(mockEvents);
+        if (events.length === 0) {
+            container.innerHTML = '<div class="col-12 text-center"><p style="color:var(--gray-dark);">Check back soon for upcoming events!</p></div>';
+            return;
         }
+
+        let html = '';
+        events.forEach((event, index) => {
+            const delay = (index % 3) * 100; // Staggers the animation
+            
+            // Format the date neatly
+            const eventDate = new Date(event.date).toLocaleDateString('en-MY', { day: 'numeric', month: 'short', year: 'numeric' });
+            
+            // Fallback image just in case the client forgets to upload one
+            const img = event.image || 'https://placehold.co/600x400/022c22/ffffff?text=KOPELADAR+Event';
+            
+            // Trim the description so the cards stay the same height
+            const desc = event.description ? event.description.substring(0, 90) + '...' : 'Click to read more about this event.';
+
+            html += `
+                <div class="col-4 mb-5" data-aos="fade-up" data-aos-delay="${delay}">
+                    <article class="blog-card">
+                        <div class="blog-img-wrap">
+                            <img src="${img}" alt="${event.title}" class="blog-img" style="height: 200px; object-fit: cover; width: 100%;">
+                            <span class="blog-category">${event.category || 'Event'}</span>
+                        </div>
+                        <div class="blog-body">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar-alt"></i> ${eventDate}</span>
+                                <span><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h3 class="blog-title">${event.title}</h3>
+                            <p class="blog-excerpt">${desc}</p>
+                            <a href="event-details.html?id=${event.fileName}" class="blog-link">
+                                Read Article <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
     } catch (error) {
-        console.warn("Using Mock Data with Thumbnails for consultation");
-        renderBlogCards(mockEvents);
+        console.log('No events to show yet or index not built.');
+        container.innerHTML = '<div class="col-12 text-center"><p style="color:var(--gray-dark);">Check back soon for upcoming events!</p></div>';
     }
 }
 
-function renderBlogCards(events) {
-    const container = document.getElementById('activity-container');
-    container.innerHTML = "";
 
-    events.forEach((event, index) => {
-        // Data Extraction
-        const title = event.properties.Name?.title[0]?.plain_text || "Upcoming Event";
-        const date = event.properties["Event Date"]?.date?.start || "2026";
-        const desc = event.properties.Description?.rich_text[0]?.plain_text || "";
-        const category = event.category || "General";
-
-        // Image Logic: 
-        // 1. Try real Notion Thumbnail 
-        // 2. Try our new mock thumbnail 
-        // 3. Fallback to placeholder.co
-        const imgObj = event.properties.Thumbnail?.files[0];
-        const img = imgObj?.file?.url || imgObj?.external?.url || event.thumbnail || `https://placehold.co/600x400?text=KOPELADAR+News+${index + 1}`;
-
-        container.innerHTML += `
-            <div class="col-4 mb-5" data-aos="fade-up" data-aos-delay="${index * 100}">
-                <article class="blog-card">
-                    <div class="blog-img-wrap">
-                        <img src="${img}" alt="${title}" class="blog-img">
-                        <span class="blog-category">${category}</span>
-                    </div>
-                    <div class="blog-body">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar-alt"></i> ${date}</span>
-                            <span><i class="far fa-user"></i> Admin</span>
-                        </div>
-                        <h3 class="blog-title">${title}</h3>
-                        <p class="blog-excerpt">${desc.substring(0, 80)}...</p>
-                        <a href="${event.url}" class="blog-link">
-                            Read Article <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        `;
-    });
-}
-
-fetchActivities();
 
 
 
@@ -695,7 +645,7 @@ function buildOfficeChart() {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-
+    fetchActivities();
     buildOrgChart();
     buildBoardGrid();
     buildOfficeChart();
