@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details | KOPELADAR</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+
+<body class="loading">
+
+    <div id="preloader">
+        <div class="svg-loader-wrap">
+            <svg class="svg-logo-draw" viewBox="0 0 400 100">
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">KOPELADAR</text>
+            </svg>
+        </div>
+    </div>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="internal-hero" id="event-hero" style="background: var(--primary-dark);">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h6 class="sub-title" id="display-category">EVENT</h6>
+                <h1 id="display-title">Loading Event...</h1>
+                <p id="display-description"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-8" data-aos="fade-up">
+                    <div class="about-img mb-5">
+                        <img id="display-image" src="" alt="Event Banner"
+                            style="width: 100%; border-radius: 20px; display: none;">
+                    </div>
+
+                    <div id="display-body" class="event-rich-text">
+                    </div>
+                </div>
+
+                <div class="col-4" data-aos="fade-left">
+                    <div class="vm-card" style="position: sticky; top: 120px;">
+                        <h4 data-i18n="nav-corporate">Event Info</h4>
+                        <div class="divider"></div>
+                        <ul class="footer-links" style="padding: 0;">
+                            <li style="color: var(--slate); margin-bottom: 15px;">
+                                <i class="fas fa-calendar-alt" style="color: var(--accent); margin-right: 10px;"></i>
+                                <span id="display-date">---</span>
+                            </li>
+                            <li style="color: var(--slate); margin-bottom: 15px;">
+                                <i class="fas fa-tag" style="color: var(--accent); margin-right: 10px;"></i>
+                                <span id="display-tag">---</span>
+                            </li>
+                        </ul>
+                        <br>
+                        <a href="index.html#events" class="btn btn-primary w-100" style="justify-content: center;">
+                            <i class="fas fa-arrow-left"></i> Back to Events
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+        // 1. Fetch Navbar and Footer (Standard)
+        const fetchPartials = async () => {
+            const nav = await fetch('navbar.html').then(r => r.text());
+            const foot = await fetch('footer.html').then(r => r.text());
+            document.getElementById('navbar-placeholder').innerHTML = nav;
+            document.getElementById('footer-placeholder').innerHTML = foot;
+            if (typeof initNavbarFeatures === 'function') initNavbarFeatures();
+        };
+        fetchPartials();
+
+        // 2. Load Event Data from JSON
+        const params = new URLSearchParams(window.location.search);
+        const eventId = params.get('id'); // e.g., event-details.html?id=2026-03-19-mesyuarat-agung
+
+        if (eventId) {
+            fetch(`data/events/${eventId}.json`)
+                .then(response => {
+                    if (!response.ok) throw new Error('Event file not found');
+                    return response.json();
+                })
+                .then(data => {
+                    // Update UI Elements
+                    document.title = `${data.title} | KOPELADAR`;
+                    document.getElementById('display-title').innerText = data.title;
+                    document.getElementById('display-category').innerText = data.category || 'EVENT';
+                    document.getElementById('display-description').innerText = data.description || '';
+                    document.getElementById('display-date').innerText = new Date(data.date).toLocaleDateString('en-MY', { day: 'numeric', month: 'long', year: 'numeric' });
+                    document.getElementById('display-tag').innerText = data.category || 'General';
+
+                    // Update Image
+                    const img = document.getElementById('display-image');
+                    if (data.image) {
+                        img.src = data.image;
+                        img.style.display = 'block';
+                        // Also update Hero Background
+                        document.getElementById('event-hero').style.background = `linear-gradient(rgba(2, 44, 34, 0.9), rgba(2, 44, 34, 0.7)), url('${data.image}') no-repeat center center/cover`;
+                    }
+
+                    // Convert Markdown Body to HTML
+                    if (data.body) {
+                        document.getElementById('display-body').innerHTML = marked.parse(data.body);
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    document.getElementById('display-title').innerText = "Event Not Found";
+                    document.getElementById('display-description').innerText = "Please return to the homepage to see our latest events.";
+                });
+        }
+    </script>
+</body>
+
+</html>

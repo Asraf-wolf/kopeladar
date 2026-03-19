@@ -1,0 +1,26 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME
+  branch: main
+  base_url: https://kopeladar-auth.dzulamri070.workers.dev # THE WORKER URL
+  auth_endpoint: auth # This matches the /auth in our Worker code
+
+media_folder: "img/events"
+public_folder: "/img/events"
+
+collections:
+  - name: "events"
+    label: "Events"
+    folder: "data/events"
+    create: true
+    format: "json"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "ID", name: "id", widget: "number" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Event Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Body Content", name: "body", widget: "markdown" }
+      - { label: "Body (Malay)", name: "body_ms", widget: "markdown" }
+      - { label: "Body (English)", name: "body_en", widget: "markdown" }
