@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: dzu111/kopeladar
+  repo: kopeladarwb-tech/kopeladar
   branch: main
-  base_url: https://kopeladar-auth.dzulamri070.workers.dev # THE WORKER URL
+  base_url: https://kopeladar-auth.kopeladarwb.workers.dev # THE WORKER URL
   auth_endpoint: auth # This matches the /auth in our Worker code
 
 media_folder: "img/events"
