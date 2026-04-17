@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://kopeladar.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://kopeladar.com/mineral-water.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kopeladar.com/shell.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kopeladar.com/hall-rental.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kopeladar.com/property.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kopeladar.com/partnerships.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kopeladar.com/contact.html</loc>
+    <priority>0.9</priority>
+  </url>
+</urlset>
