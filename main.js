@@ -168,7 +168,7 @@ const translations = {
         'vision-title': 'Visi Kami',
         'vision-desc': 'Menjadi koperasi terkemuka yang memperkasa pembangunan sosio-ekonomi Peserta Ladang Rakyat dan seluruh komuniti Negeri Kelantan.',
         'mission-title': 'Misi Kami',
-        'mission-1': 'Melestarikan pertumbuhan perniagaan yang kompetitif demi menjana keuntungan serta memperkasa taraf sosio-ekonomi seluruh anggota KOPELADAR.',
+        'mission-desc': 'Melestarikan pertumbuhan perniagaan yang kompetitif demi menjana keuntungan serta memperkasa taraf sosio-ekonomi seluruh anggota KOPELADAR.',
         'mission-2': '',
         'mission-3': '',
         'motto-title': 'Motto Kami',
@@ -266,7 +266,6 @@ const translations = {
         'email-ph': 'E-mel Anda',
         'msg-ph': 'Mesej Anda',
         'btn-send': 'Hantar Pertanyaan',
-        'mission-desc': 'Menyaiperkhidmatan kewangan yang profesional dan telus, mengembangkan portfolio perniagaan, dan memupuk inovasi serta integriti dalam setiap usaha.',
         'stat-years': 'Tahun Berkhidmat',
         'stat-members': 'Ahli Aktif',
         'stat-assets': 'Aset RM Juta',
@@ -684,7 +683,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateYearTarget = () => {
         const yearsSpan = document.getElementById('years-counter');
         if (yearsSpan) {
-            const startYear = 1997; // KOPELADAR establishment year
+            const startYear = 2009; // KOPELADAR establishment year
             const currentYear = new Date().getFullYear();
             const difference = currentYear - startYear;
 
