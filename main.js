@@ -1,4 +1,4 @@
-﻿// TRANSLATION DICTIONARY
+// TRANSLATION DICTIONARY
 const translations = {
     'en': {
         'nav-home': 'Home',
@@ -128,6 +128,14 @@ const translations = {
         'stat-assets': 'RM Million Assets',
         'stat-projects': 'Service Districts',
         'timeline-title': 'Legacy of Growth',
+        'timeline-t1': 'Establishment',
+        'timeline-d1': 'Foundation of KOPELADAR to serve the educators of Kelantan.',
+        'timeline-t2': 'Diversification',
+        'timeline-d2': 'Expansion into retail and petrol station management.',
+        'timeline-t3': 'Property Milestone',
+        'timeline-d3': 'Launching our first major residential development project.',
+        'timeline-t4': 'Digital Transformation',
+        'timeline-d4': 'Modernizing operations and expanding to northern region distribution.',
         'footer-text': '© 2026 Koperasi Perkhidmatan Pelajaran Kelantan Berhad. All Rights Reserved.',
         'pp-title': '1. Information Collection',
         'pp-desc': 'KOPELADAR Berhad values your privacy. This is a static website and we do not automatically collect personal data or use cookies for tracking. We only collect information (Name, Email, Phone) that you voluntarily provide through our contact forms.',
@@ -272,6 +280,14 @@ const translations = {
         'stat-assets': 'Aset RM Juta',
         'stat-projects': 'Peringkat Kawasan',
         'timeline-title': 'Warisan Pertumbuhan',
+        'timeline-t1': 'Penubuhan',
+        'timeline-d1': 'Penubuhan KOPELADAR untuk berkhidmat kepada warga pendidik Kelantan.',
+        'timeline-t2': 'Pelbagaian',
+        'timeline-d2': 'Pengembangan ke pengurusan runcit dan stesen minyak.',
+        'timeline-t3': 'Pencapaian Hartanah',
+        'timeline-d3': 'Melancarkan projek pembangunan kediaman utama pertama kami.',
+        'timeline-t4': 'Transformasi Digital',
+        'timeline-d4': 'Memodenkan operasi dan mengembangkan pengedaran ke wilayah utara.',
         'footer-text': '© 2026 Koperasi Perkhidmatan Pelajaran Kelantan Berhad. Hak Cipta Terpelihara.',
         'pp-title': '1. Pengumpulan Maklumat',
         'pp-desc': 'KOPELADAR Berhad menghargai privasi anda. Laman web ini adalah statik dan kami tidak mengumpul data peribadi secara automatik. Kami hanya mengumpul maklumat yang anda berikan secara sukarela melalui borang hubungan.',
@@ -534,6 +550,18 @@ function buildOrgChart() {
             const penaung = data.find(person => person.role.toLowerCase() === 'penaung');
             const penasihat = data.find(person => person.role.toLowerCase() === 'penasihat');
             const boardMembers = data.filter(person => person.role.toLowerCase() === 'board');
+
+            // Sort so Pengerusi -> Setiausaha -> Bendahari -> ALK / Others
+            boardMembers.sort((a, b) => {
+                const getWeight = (title) => {
+                    const t = String(title || '').toLowerCase();
+                    if (t.includes('pengerusi')) return 1;
+                    if (t.includes('setiausaha')) return 2;
+                    if (t.includes('bendahari')) return 3;
+                    return 4;
+                };
+                return getWeight(a.title) - getWeight(b.title);
+            });
 
             let boardHtml = '';
             boardMembers.forEach(member => {
