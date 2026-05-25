@@ -736,68 +736,6 @@ h4,
     opacity: 0.7;
 }
 
-/* TIMELINE SECTION */
-.timeline-container {
-    padding: 100px 0;
-    position: relative;
-}
-
-.timeline-line {
-    position: absolute;
-    left: 50%;
-    top: 100px;
-    bottom: 100px;
-    width: 2px;
-    background: var(--gray-border);
-    transform: translateX(-50%);
-}
-
-.timeline-item {
-    margin-bottom: 100px;
-    position: relative;
-    width: 50%;
-    padding: 0 50px;
-}
-
-.timeline-item:nth-child(even) {
-    margin-left: 50%;
-}
-
-.timeline-item:nth-child(odd) {
-    text-align: right;
-}
-
-.timeline-content {
-    background: var(--white);
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--gray-border);
-}
-
-@media (max-width: 768px) {
-    .timeline-line {
-        left: 20px;
-        transform: none;
-    }
-
-    .timeline-item {
-        width: 100%;
-        padding-left: 50px;
-        padding-right: 0;
-        text-align: left !important;
-    }
-
-    .timeline-item:nth-child(even) {
-        margin-left: 0;
-    }
-
-    .timeline-dot {
-        left: 10px !important;
-        right: auto !important;
-    }
-}
-
 
 /* HQ STATUS WIDGET */
 .hq-widget {
